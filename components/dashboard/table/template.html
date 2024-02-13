@@ -1,10 +1,11 @@
 <body>
-    <table class="table table-striped">
+    <table class="table table-striped dashboard-table">
+        
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Pagador</th>
-                <th scope="col">Nº</th>
+                <th scope="col">Nº da nota</th>
                 <th scope="col">Emissão da nota</th>
                 <th scope="col">Cobrança</th>
                 <th scope="col">Pagamento</th>
@@ -14,29 +15,48 @@
                 <th scope="col">Status da nota</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <!-- ID -->
-                <th scope="row">1</th>
-                <!-- Nome do pagador -->
-                <td>Rafael</td>
-                <!-- Número da nota fiscal -->
-                <td>1556687899</td>
-                <!-- Data da Emissão da Nota -->
-                <td>12/02/2024</td>
-                <!-- Data da Cobrança -->
-                <td>05/02/2024</td>
-                <!-- Data do Pagamento -->
-                <td>11/02/2024</td>
-                <!-- Valor da Nota -->
-                <td>R$ 4562,00</td>
-                <!-- Documento da Nota Fiscal -->
-                <td>????</td>
-                <!-- Documento do Boleto Bancário -->
-                <td>????</td>
-                <!-- Status da Nota -->
-                <td>Emitido</td>
-            </tr>
-        </tbody>
+
+        <tbody class="dashboard-table__lines"></tbody>
+
     </table>
+
+    <script type="module">
+        import {invoicesData} from "/components/dashboard/table/data.js";
+
+        $(() => {
+            for (const [key, invoiceData] of Object.entries(invoicesData)) {
+                newLine(invoiceData)
+            }
+        }
+        );
+
+        function newLine(
+            invoiceData
+        ) {
+            $(".dashboard-table__lines").append(`
+                <tr>
+                    <!-- ID -->
+                    <th scope="row">${invoiceData.id}</th>
+                    <!-- Nome do pagador -->
+                    <td>${invoiceData.userName}</td>
+                    <!-- Número da nota fiscal -->
+                    <td>${invoiceData.invoiceNumber}</td>
+                    <!-- Data da Emissão da Nota -->
+                    <td>${invoiceData.invoiceIssueDate}</td>
+                    <!-- Data da Cobrança -->
+                    <td>${invoiceData.chargeDate}</td>
+                    <!-- Data do Pagamento -->
+                    <td>${invoiceData.paymentDate}</td>
+                    <!-- Valor da Nota -->
+                    <td>R$ ${invoiceData.invoiceValue}</td>
+                    <!-- Documento da Nota Fiscal -->
+                    <td>${invoiceData.invoiceDocument}</td>
+                    <!-- Documento do Boleto Bancário -->
+                    <td>${invoiceData.ticketDocument}</td>
+                    <!-- Status da Nota -->
+                    <td>${invoiceData.invoiceStatus}</td>
+                </tr>
+            `);
+        }
+    </script>
 </body>

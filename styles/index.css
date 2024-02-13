@@ -1,6 +1,7 @@
 @import url("/components/header/styles.css");
 @import url("/components/side-nav/styles.css");
 @import url("/components/dashboard/cards/styles.css");
+@import url("/components/dashboard/table/styles.css");
 
 :root {
     --font-primary: "Poppins";
