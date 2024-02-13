@@ -1,0 +1,29 @@
+.dashboard-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 18px;
+}
+
+.dashboard-cards__card {
+    padding: 16px;
+    flex-grow: 1;
+    background-color: var(--color-surface-2);
+    border-radius: 12px;
+    gap: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.dashboard-cards__card__title {
+    font-size: 14px;
+    width: 50%;
+}
+
+.dashboard-cards__card__value {
+    font-size: 18px;
+    width: 50%;
+}

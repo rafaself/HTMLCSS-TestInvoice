@@ -1,0 +1,46 @@
+@import url("/components/header/styles.css");
+@import url("/components/side-nav/styles.css");
+@import url("/components/dashboard/cards/styles.css");
+
+:root {
+    --font-primary: "Poppins";
+    --color-primary:#030506;
+    --color-secondary:#ab9597;
+    --color-surface-1:#7a6248;
+    --color-surface-2:#968f4b;
+    --color-surface-3:#fffbf0;
+    --color-brown-gradient: linear-gradient(180deg, #ab9597 1%, #fffbf0 15%);
+}
+
+
+.main-body {
+    position: relative;
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    background: var(--color-brown-gradient);
+    font-family: var(--font-primary);
+    width: 100%;
+    min-height: 100vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: 260px;
+    width: calc(100% - 260px); 
+    transition: margin-left 0.5s ease, width 0.5s ease;
+}
+
+.content__active {
+    margin-left: 0; 
+    width: 100%; 
+}
+
+header {
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+}

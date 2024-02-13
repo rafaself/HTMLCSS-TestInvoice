@@ -1,0 +1,58 @@
+<body>
+    <div class="side-nav__content">
+        <div class="side-nav__brand">
+            <a href="#">
+                <i class="bi bi-receipt fs-4"></i>
+                <span class="side-nav__brand__title">
+                    NotaSoft
+                </span>
+            </a>
+        </div>
+        <ul class="nav flex-column side-nav__buttons">
+            <li class="side-nav__buttons__button nav-link active">
+                <a href="#">
+                    Dashboard
+                </a>
+            </li>
+            <li class="side-nav__buttons__button">
+                <a href="#" onclick="redirect()">
+                    Customers
+                </a>
+            </li>
+            <li class="side-nav__buttons__button">
+                <a href="#">
+                    Projects
+                </a>
+            </li>
+            <li class="side-nav__buttons__button">
+                <a href="#">
+                    Orders
+                </a>
+            </li>
+            <li class="side-nav__buttons__button">
+                <a href="#">
+                    Inventory
+                </a>
+            </li>
+            <li class="side-nav__buttons__button">
+                <a href="#">
+                    Accounts
+                </a>
+            </li>
+            <li class="side-nav__buttons__button">
+                <a href="#">
+                    Tasks
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script src="components/side-nav/scripts.js"></script>
+    <script>
+        function redirect() {
+            window.location.href = "index.html";
+            return false;
+        }
+    </script>
+
+</body>

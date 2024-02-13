@@ -1,0 +1,67 @@
+#side-nav {
+    position: fixed;
+    top: 0;
+    left: -260px; /* Inicialmente fora da tela */
+    width: 260px;
+    padding-left: 16px;
+    background-color: var(--color-surface-3);
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.side-nav__active {
+    transform: translateX(260px); /* Trás o menu para a tela */
+}
+
+.side-nav__brand {
+    margin: 32px 16px;
+    cursor: pointer;
+    color: black;
+}
+
+.side-nav__brand a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.side-nav__brand__title {
+    font-size: 24px;
+    margin-left: 6px;
+}
+
+.side-nav__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.side-nav__buttons__button {
+    padding: 16px;
+    background-color: var(--color-secondary);
+    border: 1px solid transparent;
+    border-top-left-radius: 64px;
+    border-bottom-left-radius: 64px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    color: var(--color-primary);
+}
+
+.side-nav__buttons__button:hover {
+    color: var(--color-secondary);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.side-nav__buttons__button.active.nav-link {
+    color: var(--color-surface-1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+}
+
+.side-nav__buttons__button a {
+    text-decoration: none;
+    color: var(--color-surface-3);
+}
+
+.side-nav__buttons__button.active {
+    padding: 16px;
+    background-color: var(--color-surface-1);
+}
