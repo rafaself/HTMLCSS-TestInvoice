@@ -1,0 +1,77 @@
+<body>
+
+    <div class="dashboard-filters-title">
+        <h4>Filtros</h4>
+    </div>
+
+    <div class="dashboard-filters">
+
+        <div class="dashboard-filters__filter issue">
+            <div class="dashboard-filters__filter issue-text">
+                Emissão da nota
+            </div>
+            <div class="dashboard-filters__filter issue-filter">
+                <input type="text" id="daterange-issue" name="daterange-issue" />
+            </div>
+        </div>
+
+        <div class="dashboard-filters__filter charge">
+            <div class="dashboard-filters__filter charge-text">
+                Cobrança
+            </div>
+            <div class="dashboard-filters__filter charge-filter">
+                <input type="text" id="daterange-charge" name="daterange-charge" />
+            </div>
+        </div>
+
+        <div class="dashboard-filters__filter payment">
+            <div class="dashboard-filters__filter payment-text">
+                Pagamento realizado
+            </div>
+            <div class="dashboard-filters__filter payment-filter">
+                <input type="text" id="daterange-payment" name="daterange-payment" />
+            </div>
+        </div>
+
+        <div class="dashboard-filters__filter status">
+            <div class="dashboard-filters__filter status-text">
+                Status da nota
+            </div>
+            <div class="dashboard-filters__filter status-filter">
+                <select type="select">
+                    <option>Emitida</option>
+                    <option>Cobrança realizada</option>
+                    <option>Pagamento em atraso</option>
+                    <option>Pagamento realizado</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="filters-button-content">
+        <span class="filter-button">
+            Aplicar filtro
+        </span>
+    </div>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#daterange-issue').daterangepicker({
+                opens: 'left'
+            });
+            $('#daterange-charge').daterangepicker({
+                opens: 'left'
+            });
+            $('#daterange-payment').daterangepicker({
+                opens: 'left'
+            });
+        });
+
+    </script>
+      
+
+</body>

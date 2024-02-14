@@ -1,0 +1,42 @@
+.dashboard-filters-title {
+    margin: 18px 26px;
+}
+
+.dashboard-filters {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.dashboard-filters__filter {
+    flex-grow: 1;
+    display: flex;
+    margin-left: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.dashboard-filters__filter .issue-filter {
+    display: flex;
+}
+
+.filters-button-content {
+    padding: 16px 28px;
+    display:flex;
+    width:100%;
+    justify-content: end;
+}
+
+.filter-button {
+    border: 1px solid var(--color-secondary);
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 4px 16px;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background-color: var(--color-secondary);
+}
+

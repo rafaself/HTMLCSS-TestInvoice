@@ -1,5 +1,5 @@
-import { invoicesData } from "/components/dashboard/data/data.js";
-import { sortByDate } from "/components/dashboard/scripts/utils.js";
+import { invoicesData } from "/components/dashboard/resources/data/data.js";
+import { sortByDate } from "/components/dashboard/resources/scripts/utils.js";
 
 $(() => {
     var invoicesDataCopy = [...invoicesData];
