@@ -1,470 +1,131 @@
-export const invoicesData = [
-    {
-        "id": "1",
-        "userName": "Carlos Silva",
-        "invoiceNumber": "111111",
-        "invoiceIssueDate": "01/01/2024",
-        "chargeDate": "31/01/2024",
-        "paymentDate": null,
-        "invoiceValue": 500.00,
-        "invoiceDocument": "NF111111",
-        "ticketDocument": "BB111111",
-        "invoiceStatus": "Emitida"
-    },
-    {
-        "id": "2",
-        "userName": "Ana Oliveira",
-        "invoiceNumber": "222222",
-        "invoiceIssueDate": "02/02/2024",
-        "chargeDate": "28/02/2024",
-        "paymentDate": "20/06/2024",
-        "invoiceValue": 750.00,
-        "invoiceDocument": "NF222222",
-        "ticketDocument": "BB222222",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "3",
-        "userName": "Pedro Santos",
-        "invoiceNumber": "333333",
-        "invoiceIssueDate": "03/03/2024",
-        "chargeDate": "31/03/2024",
-        "paymentDate": null,
-        "invoiceValue": 900.00,
-        "invoiceDocument": "NF333333",
-        "ticketDocument": "BB333333",
-        "invoiceStatus": "Cobrança realizada"
-    },
-    {
-        "id": "4",
-        "userName": "Mariana Costa",
-        "invoiceNumber": "444444",
-        "invoiceIssueDate": "04/04/2024",
-        "chargeDate": "30/04/2024",
-        "paymentDate": null,
-        "invoiceValue": 1200.00,
-        "invoiceDocument": "NF444444",
-        "ticketDocument": "BB444444",
-        "invoiceStatus": "Emitida"
-    },
-    {
-        "id": "5",
-        "userName": "Rafaela Lima",
-        "invoiceNumber": "555555",
-        "invoiceIssueDate": "05/05/2024",
-        "chargeDate": "31/05/2024",
-        "paymentDate": "25/05/2024",
-        "invoiceValue": 650.00,
-        "invoiceDocument": "NF555555",
-        "ticketDocument": "BB555555",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "6",
-        "userName": "Lucas Pereira",
-        "invoiceNumber": "666666",
-        "invoiceIssueDate": "06/06/2024",
-        "chargeDate": "30/06/2024",
-        "paymentDate": null,
-        "invoiceValue": 850.00,
-        "invoiceDocument": "NF666666",
-        "ticketDocument": "BB666666",
-        "invoiceStatus": "Cobrança realizada"
-    },
-    {
-        "id": "7",
-        "userName": "Patricia Oliveira",
-        "invoiceNumber": "777777",
-        "invoiceIssueDate": "07/07/2024",
-        "chargeDate": "31/07/2024",
-        "paymentDate": "15/07/2024",
-        "invoiceValue": 1100.00,
-        "invoiceDocument": "NF777777",
-        "ticketDocument": "BB777777",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "8",
-        "userName": "Gabriel Costa",
-        "invoiceNumber": "888888",
-        "invoiceIssueDate": "08/08/2024",
-        "chargeDate": "31/08/2024",
-        "paymentDate": null,
-        "invoiceValue": 950.00,
-        "invoiceDocument": "NF888888",
-        "ticketDocument": "BB888888",
-        "invoiceStatus": "Emitida"
-    },
-    {
-        "id": "9",
-        "userName": "Isabela Silva",
-        "invoiceNumber": "999999",
-        "invoiceIssueDate": "09/09/2024",
-        "chargeDate": "30/09/2024",
-        "paymentDate": "28/09/2024",
-        "invoiceValue": 700.00,
-        "invoiceDocument": "NF999999",
-        "ticketDocument": "BB999999",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "10",
-        "userName": "Felipe Santos",
-        "invoiceNumber": "101010",
-        "invoiceIssueDate": "10/10/2024",
-        "chargeDate": "31/10/2024",
-        "paymentDate": null,
-        "invoiceValue": 800.00,
-        "invoiceDocument": "NF101010",
-        "ticketDocument": "BB101010",
-        "invoiceStatus": "Cobrança realizada"
-    },
-    {
-        "id": "11",
-        "userName": "João Silva",
-        "invoiceNumber": "111111",
-        "invoiceIssueDate": "11/11/2024",
-        "chargeDate": "30/11/2024",
-        "paymentDate": null,
-        "invoiceValue": 550.00,
-        "invoiceDocument": "NF111111",
-        "ticketDocument": "BB111111",
-        "invoiceStatus": "Emitida"
-    },
-    {
-        "id": "12",
-        "userName": "Maria Oliveira",
-        "invoiceNumber": "121212",
-        "invoiceIssueDate": "12/12/2024",
-        "chargeDate": "31/12/2024",
-        "paymentDate": "20/12/2024",
-        "invoiceValue": 780.00,
-        "invoiceDocument": "NF121212",
-        "ticketDocument": "BB121212",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "13",
-        "userName": "Pedro Almeida",
-        "invoiceNumber": "131313",
-        "invoiceIssueDate": "13/01/2025",
-        "chargeDate": "31/01/2025",
-        "paymentDate": null,
-        "invoiceValue": 920.00,
-        "invoiceDocument": "NF131313",
-        "ticketDocument": "BB131313",
-        "invoiceStatus": "Cobrança realizada"
-    },
-    {
-        "id": "14",
-        "userName": "Mariana Oliveira",
-        "invoiceNumber": "141414",
-        "invoiceIssueDate": "14/02/2025",
-        "chargeDate": "28/02/2025",
-        "paymentDate": "20/02/2025",
-        "invoiceValue": 1230.00,
-        "invoiceDocument": "NF141414",
-        "ticketDocument": "BB141414",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "15",
-        "userName": "Rafael Lima",
-        "invoiceNumber": "151515",
-        "invoiceIssueDate": "15/03/2025",
-        "chargeDate": "31/03/2025",
-        "paymentDate": null,
-        "invoiceValue": 670.00,
-        "invoiceDocument": "NF151515",
-        "ticketDocument": "BB151515",
-        "invoiceStatus": "Emitida"
-    },
-    {
-        "id": "16",
-        "userName": "Lucas Santos",
-        "invoiceNumber": "161616",
-        "invoiceIssueDate": "16/04/2025",
-        "chargeDate": "30/04/2025",
-        "paymentDate": "25/04/2025",
-        "invoiceValue": 890.00,
-        "invoiceDocument": "NF161616",
-        "ticketDocument": "BB161616",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "17",
-        "userName": "Patricia Pereira",
-        "invoiceNumber": "171717",
-        "invoiceIssueDate": "17/05/2025",
-        "chargeDate": "31/05/2025",
-        "paymentDate": null,
-        "invoiceValue": 1150.00,
-        "invoiceDocument": "NF171717",
-        "ticketDocument": "BB171717",
-        "invoiceStatus": "Cobrança realizada"
-    },
-    {
-        "id": "18",
-        "userName": "Gabriel Lima",
-        "invoiceNumber": "181818",
-        "invoiceIssueDate": "18/06/2025",
-        "chargeDate": "30/06/2025",
-        "paymentDate": "15/06/2025",
-        "invoiceValue": 970.00,
-        "invoiceDocument": "NF181818",
-        "ticketDocument": "BB181818",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "19",
-        "userName": "Isabela Oliveira",
-        "invoiceNumber": "191919",
-        "invoiceIssueDate": "19/07/2025",
-        "chargeDate": "31/07/2025",
-        "paymentDate": null,
-        "invoiceValue": 720.00,
-        "invoiceDocument": "NF191919",
-        "ticketDocument": "BB191919",
-        "invoiceStatus": "Emitida"
-    },
-    {
-        "id": "20",
-        "userName": "Felipe Pereira",
-        "invoiceNumber": "202020",
-        "invoiceIssueDate": "20/08/2025",
-        "chargeDate": "31/08/2025",
-        "paymentDate": "28/08/2025",
-        "invoiceValue": 820.00,
-        "invoiceDocument": "NF202020",
-        "ticketDocument": "BB202020",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "21",
-        "userName": "Joana Almeida",
-        "invoiceNumber": "212121",
-        "invoiceIssueDate": "21/09/2025",
-        "chargeDate": "30/09/2025",
-        "paymentDate": null,
-        "invoiceValue": 580.00,
-        "invoiceDocument": "NF212121",
-        "ticketDocument": "BB212121",
-        "invoiceStatus": "Cobrança realizada"
-    },
-    {
-        "id": "22",
-        "userName": "Marcelo Costa",
-        "invoiceNumber": "222222",
-        "invoiceIssueDate": "22/10/2025",
-        "chargeDate": "31/10/2025",
-        "paymentDate": "25/10/2025",
-        "invoiceValue": 670.00,
-        "invoiceDocument": "NF222222",
-        "ticketDocument": "BB222222",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "23",
-        "userName": "Renata Oliveira",
-        "invoiceNumber": "232323",
-        "invoiceIssueDate": "23/11/2025",
-        "chargeDate": "30/11/2025",
-        "paymentDate": null,
-        "invoiceValue": 930.00,
-        "invoiceDocument": "NF232323",
-        "ticketDocument": "BB232323",
-        "invoiceStatus": "Emitida"
-    },
-    {
-        "id": "24",
-        "userName": "Luciana Lima",
-        "invoiceNumber": "242424",
-        "invoiceIssueDate": "24/12/2025",
-        "chargeDate": "31/12/2025",
-        "paymentDate": "20/12/2025",
-        "invoiceValue": 790.00,
-        "invoiceDocument": "NF242424",
-        "ticketDocument": "BB242424",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "25",
-        "userName": "Eduardo Almeida",
-        "invoiceNumber": "252525",
-        "invoiceIssueDate": "25/01/2026",
-        "chargeDate": "31/01/2026",
-        "paymentDate": null,
-        "invoiceValue": 970.00,
-        "invoiceDocument": "NF252525",
-        "ticketDocument": "BB252525",
-        "invoiceStatus": "Cobrança realizada"
-    },
-    {
-        "id": "26",
-        "userName": "Marina Pereira",
-        "invoiceNumber": "262626",
-        "invoiceIssueDate": "26/02/2026",
-        "chargeDate": "28/02/2026",
-        "paymentDate": "20/02/2026",
-        "invoiceValue": 1320.00,
-        "invoiceDocument": "NF262626",
-        "ticketDocument": "BB262626",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "27",
-        "userName": "Paulo Silva",
-        "invoiceNumber": "272727",
-        "invoiceIssueDate": "27/03/2026",
-        "chargeDate": "31/03/2026",
-        "paymentDate": null,
-        "invoiceValue": 700.00,
-        "invoiceDocument": "NF272727",
-        "ticketDocument": "BB272727",
-        "invoiceStatus": "Emitida"
-    },
-    {
-        "id": "28",
-        "userName": "Cristina Lima",
-        "invoiceNumber": "282828",
-        "invoiceIssueDate": "28/04/2026",
-        "chargeDate": "30/04/2026",
-        "paymentDate": "25/04/2026",
-        "invoiceValue": 920.00,
-        "invoiceDocument": "NF282828",
-        "ticketDocument": "BB282828",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "29",
-        "userName": "Roberto Santos",
-        "invoiceNumber": "292929",
-        "invoiceIssueDate": "29/05/2026",
-        "chargeDate": "31/05/2026",
-        "paymentDate": null,
-        "invoiceValue": 1160.00,
-        "invoiceDocument": "NF292929",
-        "ticketDocument": "BB292929",
-        "invoiceStatus": "Cobrança realizada"
-    },
-    {
-        "id": "30",
-        "userName": "Ana Maria",
-        "invoiceNumber": "303030",
-        "invoiceIssueDate": "30/06/2026",
-        "chargeDate": "30/06/2026",
-        "paymentDate": "15/06/2026",
-        "invoiceValue": 980.00,
-        "invoiceDocument": "NF303030",
-        "ticketDocument": "BB303030",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "31",
-        "userName": "Pedro Lima",
-        "invoiceNumber": "313131",
-        "invoiceIssueDate": "31/07/2026",
-        "chargeDate": "31/07/2026",
-        "paymentDate": null,
-        "invoiceValue": 730.00,
-        "invoiceDocument": "NF313131",
-        "ticketDocument": "BB313131",
-        "invoiceStatus": "Emitida"
-    },
-    {
-        "id": "32",
-        "userName": "Marcos Oliveira",
-        "invoiceNumber": "323232",
-        "invoiceIssueDate": "01/08/2026",
-        "chargeDate": "31/08/2026",
-        "paymentDate": "28/08/2026",
-        "invoiceValue": 830.00,
-        "invoiceDocument": "NF323232",
-        "ticketDocument": "BB323232",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "33",
-        "userName": "Camila Almeida",
-        "invoiceNumber": "333333",
-        "invoiceIssueDate": "02/09/2026",
-        "chargeDate": "30/09/2026",
-        "paymentDate": null,
-        "invoiceValue": 590.00,
-        "invoiceDocument": "NF333333",
-        "ticketDocument": "BB333333",
-        "invoiceStatus": "Cobrança realizada"
-    },
-    {
-        "id": "34",
-        "userName": "José Santos",
-        "invoiceNumber": "343434",
-        "invoiceIssueDate": "03/10/2026",
-        "chargeDate": "31/10/2026",
-        "paymentDate": "25/10/2026",
-        "invoiceValue": 680.00,
-        "invoiceDocument": "NF343434",
-        "ticketDocument": "BB343434",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "35",
-        "userName": "Gabriela Lima",
-        "invoiceNumber": "353535",
-        "invoiceIssueDate": "04/11/2026",
-        "chargeDate": "30/11/2026",
-        "paymentDate": null,
-        "invoiceValue": 940.00,
-        "invoiceDocument": "NF353535",
-        "ticketDocument": "BB353535",
-        "invoiceStatus": "Emitida"
-    },
-    {
-        "id": "36",
-        "userName": "Ricardo Oliveira",
-        "invoiceNumber": "363636",
-        "invoiceIssueDate": "05/12/2026",
-        "chargeDate": "31/12/2026",
-        "paymentDate": "20/12/2026",
-        "invoiceValue": 800.00,
-        "invoiceDocument": "NF363636",
-        "ticketDocument": "BB363636",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "37",
-        "userName": "Vanessa Costa",
-        "invoiceNumber": "373737",
-        "invoiceIssueDate": "06/01/2027",
-        "chargeDate": "31/01/2027",
-        "paymentDate": null,
-        "invoiceValue": 990.00,
-        "invoiceDocument": "NF373737",
-        "ticketDocument": "BB373737",
-        "invoiceStatus": "Cobrança realizada"
-    },
-    {
-        "id": "38",
-        "userName": "Fernando Santos",
-        "invoiceNumber": "383838",
-        "invoiceIssueDate": "07/02/2027",
-        "chargeDate": "28/02/2027",
-        "paymentDate": "20/02/2027",
-        "invoiceValue": 1340.00,
-        "invoiceDocument": "NF383838",
-        "ticketDocument": "BB383838",
-        "invoiceStatus": "Pagamento realizado"
-    },
-    {
-        "id": "39",
-        "userName": "Laura Almeida",
-        "invoiceNumber": "393939",
-        "invoiceIssueDate": "08/03/2027",
-        "chargeDate": "31/03/2027",
-        "paymentDate": null,
-        "invoiceValue": 710.00,
-        "invoiceDocument": "NF393939",
-        "ticketDocument": "BB393939",
-        "invoiceStatus": "Emitida"
+var names = [
+    "Sofia Santos",
+    "Pedro Almeida",
+    "Ana Silva",
+    "Lucas Oliveira",
+    "Mariana Costa",
+    "João Pereira",
+    "Beatriz Ferreira",
+    "Gabriel Carvalho",
+    "Laura Martins",
+    "Rafael Sousa",
+    "Isabela Rodrigues",
+    "Mateus Fernandes",
+    "Juliana Gomes",
+    "Gustavo Nunes",
+    "Camila Oliveira",
+    "Enzo Lima",
+    "Manuela Pereira",
+    "Leonardo Castro",
+    "Lara Rodrigues",
+    "Luiz Mendes",
+    "Carolina Alves",
+    "Matheus Ferreira",
+    "Lívia Souza",
+    "Daniel Ribeiro",
+    "Luana Santos",
+    "Vinícius Costa",
+    "Alice Martins",
+    "Pedro Henrique Lima",
+    "Eduarda Oliveira",
+    "Bruno Gonçalves",
+    "Luiza Silva",
+    "Henrique Almeida",
+    "Isadora Fernandes",
+    "David Pereira",
+    "Letícia Rodrigues",
+    "Lucas Carvalho",
+    "Clara Santos",
+    "Thiago Oliveira",
+    "Valentina Costa",
+    "André Rodrigues",
+    "Maria Eduarda Alves",
+    "Fernando Sousa",
+    "Helena Lima",
+    "Felipe Gomes",
+    "Gabriela Castro",
+    "Eduardo Martins",
+    "Ana Laura Nunes",
+    "Matheus Ferreira",
+    "Laura Oliveira"
+];
+
+
+const statusList = ["Pagamento realizado", "Emitida", "Pagamento em atraso", "Cobrança realizada"];
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function getRndFloat(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+const getRandomStatus = () => {
+    const statusChoice = getRndInteger(0, 4);
+    console.log(statusList[statusChoice])
+    return statusList[statusChoice]
+}
+
+const getRandomDateIn2023 = () => {
+    var month = getRndInteger(1, 13)
+    var day = getRndInteger(1, 30)
+    return new Date(`2024-${month}-${day}`).toLocaleString("pt-br").split(",")[0]
+}
+
+const generateRandomSequence = (size) => {
+    const chars = "ABC0123456789";
+    var sequence = "";
+
+    for (let i = 0; i < size; i++) {
+        var charIndex = getRndInteger(1, size + 1)
+        sequence += chars[charIndex];
     }
-]
+
+    return sequence;
+}
+
+const getRandomName = () => {
+    return names[getRndInteger(1, names.length)]
+}
+
+export const generateInvoicesData = (invoicesDataSize = 10) => {
+    var invoicesDataTemp = [];
+    for (var index = 0; index < invoicesDataSize; index++) {
+        var id = (index + 1).toString()
+
+        var userName = getRandomName()
+
+        var invoiceValue = getRndFloat(300, 2000)
+        var invoiceStatus = getRandomStatus()
+        var invoiceNumber = generateRandomSequence(5)
+        var invoiceDocument = "FILEI_" + invoiceNumber + ".pdf"
+        var ticketDocument = "FILET_" + invoiceNumber + ".pdf"
+
+        // Datas
+        var invoiceIssueDate = getRandomDateIn2023()
+        var chargeDate = getRandomDateIn2023()
+        var paymentDate = null
+
+        if (invoiceStatus == statusList[0]) {
+            var paymentDate = getRandomDateIn2023()
+        }
+
+        var invoice = {
+            id,
+            userName,
+            invoiceNumber,
+            invoiceIssueDate,
+            invoiceStatus,
+            chargeDate,
+            paymentDate,
+            invoiceDocument,
+            ticketDocument,
+            invoiceValue
+        }
+        invoicesDataTemp.push(invoice)
+    }
+    return invoicesDataTemp
+}
+
+export const invoicesData = generateInvoicesData(100)

@@ -1,23 +1,24 @@
 import { invoicesData } from "/components/dashboard/resources/data/data.js";
-import { sortByDate } from "/components/dashboard/resources/scripts/utils.js";
+import { sortByDate, filterByIssueMonthAndYear } from "/components/dashboard/resources/scripts/utils.js";
 
 var filterButton = $(".filter-button")
 var dashboardTableLines = $(".dashboard-table__lines")
+var dateRangeIssue = $(".daterange-issue")
 
 $(() => {
 
     filterButton.on("click", () => {
         dashboardTableLines.empty()
-
+        var dateIssueToFilter = dateRangeIssue.val()
         var invoicesDataCopy = invoicesData;
-        invoicesDataCopy = sortByDate(invoicesDataCopy);
 
-        for (const [, invoiceData] of Object.entries(invoicesDataCopy)) {
+        var invoicesDataFilteredByMonth = filterByIssueMonthAndYear(invoicesDataCopy, dateIssueToFilter)
+
+        for (const [, invoiceData] of Object.entries(invoicesDataFilteredByMonth)) {
             newLine(invoiceData);
         }
 
     })
-
 
     for (const [, invoiceData] of Object.entries(invoicesData)) {
         newLine(invoiceData);
