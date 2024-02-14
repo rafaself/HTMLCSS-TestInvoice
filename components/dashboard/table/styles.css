@@ -2,6 +2,10 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+.table-content {
+    padding: 9px 48px;
+}
+
 .table-striped>thead>tr>th {
     color: var(--color-primary);
 }

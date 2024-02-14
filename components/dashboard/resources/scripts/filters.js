@@ -5,21 +5,34 @@ var filterButton = $(".filter-button")
 var dashboardTableLines = $(".dashboard-table__lines")
 var dateRangeIssue = $(".daterange-issue")
 var dateRangeCharge = $(".daterange-charge")
+var dateRangePayment = $(".daterange-payment")
+var invoiceStatus = $(".invoice-status")
 
 $(() => {
 
     filterButton.on("click", () => {
         dashboardTableLines.empty()
-        var issueDateToFilter = dateRangeIssue.val()
+        var invoiceIssueDateToFilter = dateRangeIssue.val()
         var invoiceChargeDateToFilter = dateRangeCharge.val()
+        var invoicePaymentDateToFilter = dateRangePayment.val()
+        var invoiceStatusToFilter = invoiceStatus.val()
+
         var invoicesDataCopy = invoicesData;
 
-        if (issueDateToFilter) {
-            invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, issueDateToFilter, "invoiceIssueDate")
+        if (invoiceIssueDateToFilter) {
+            invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoiceIssueDateToFilter, "invoiceIssueDate")
         }
         
         if (invoiceChargeDateToFilter) {
             invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoiceChargeDateToFilter, "invoiceChargeDate")
+        }
+        
+        if (invoicePaymentDateToFilter) {
+            invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoicePaymentDateToFilter, "invoicePaymentDate")
+        }
+        
+        if (invoiceStatusToFilter != "") {
+            invoicesDataCopy = invoicesDataCopy.filter(invoiceData => invoiceData.invoiceStatus == invoiceStatusToFilter)
         }
 
         for (const [, invoiceData] of Object.entries(invoicesDataCopy)) {
@@ -50,7 +63,7 @@ function newLine(
                     <!-- Data da Cobrança -->
                     <td>${invoiceData.invoiceChargeDate}</td>
                     <!-- Data do Pagamento -->
-                    <td>${invoiceData.paymentDate}</td>
+                    <td>${invoiceData.invoicePaymentDate}</td>
                     <!-- Valor da Nota -->
                     <td>R$ ${invoiceData.invoiceValue.toFixed(2).replace(".", ",")}</td>
                     <!-- Documento da Nota Fiscal -->

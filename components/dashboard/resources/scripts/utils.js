@@ -1,6 +1,6 @@
 const sortByDateFunction = (invoiceData1, invoiceData2) => {
-    const [dayA, monthA, yearA] = invoiceData1.paymentDate.split('/');
-    const [dayB, monthB, yearB] = invoiceData2.paymentDate.split('/');
+    const [dayA, monthA, yearA] = invoiceData1.invoicePaymentDate.split('/');
+    const [dayB, monthB, yearB] = invoiceData2.invoicePaymentDate.split('/');
 
     const dateA = new Date(`${yearA}-${monthA}-${dayA}`);
     const dateB = new Date(`${yearB}-${monthB}-${dayB}`);
@@ -8,7 +8,7 @@ const sortByDateFunction = (invoiceData1, invoiceData2) => {
 }
 
 export const sortByDate = (invoiceData) => {
-    return invoiceData.filter(val => val.paymentDate != "-").sort(sortByDateFunction);
+    return invoiceData.filter(val => val.invoicePaymentDate != "-").sort(sortByDateFunction);
 }
 
 export const filterByMonthAndYear = (invoicesData, dateIssueToFilter, dateType) => {

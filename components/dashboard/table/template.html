@@ -1,25 +1,31 @@
 <body>
-    <table class="table table-striped dashboard-table">
-        
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Pagador</th>
-                <th scope="col">Nº da nota</th>
-                <th scope="col">Emissão da nota</th>
-                <th scope="col">Cobrança</th>
-                <th scope="col">Pagamento</th>
-                <th scope="col">Valor da Nota</th>
-                <th scope="col">Doc. da NF</th>
-                <th scope="col">Doc. Boleto</th>
-                <th scope="col">Status da nota</th>
-            </tr>
-        </thead>
 
-        <tbody class="dashboard-table__lines"></tbody>
+    <div class="dashboard-title">
+        <h4>Tabela de notas fiscais</h4>
+    </div>
 
-    </table>
+    <div class="table-content">
+        <table class="table table-striped dashboard-table">
 
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Pagador</th>
+                    <th scope="col">Nº da nota</th>
+                    <th scope="col">Emissão da nota</th>
+                    <th scope="col">Cobrança</th>
+                    <th scope="col">Pagamento</th>
+                    <th scope="col">Valor da Nota</th>
+                    <th scope="col">Doc. da NF</th>
+                    <th scope="col">Doc. Boleto</th>
+                    <th scope="col">Status da nota</th>
+                </tr>
+            </thead>
+
+            <tbody class="dashboard-table__lines"></tbody>
+
+        </table>
+    </div>
     <script type="module" src="/components/dashboard/resources/scripts/filters.js"></script>
-    
+
 </body>

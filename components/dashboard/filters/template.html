@@ -1,7 +1,7 @@
 <body>
 
-    <div class="dashboard-filters-title">
-        <h4>Filtros</h4>
+    <div class="dashboard-title">
+        <h4>Filtros para tabela</h4>
     </div>
 
     <div class="dashboard-filters">
@@ -11,7 +11,7 @@
                 Emissão da nota
             </div>
             <div class="dashboard-filters__filter issue-filter">
-                <input type="month" id="daterange-issue" class="daterange-issue" name="daterange-issue" />
+                <input type="month" id="daterange-issue" class="daterange-issue daterange" name="daterange-issue" />
             </div>
         </div>
 
@@ -20,7 +20,7 @@
                 Cobrança
             </div>
             <div class="dashboard-filters__filter charge-filter">
-                <input type="month" id="daterange-charge" class="daterange-charge" name="daterange-charge" />
+                <input type="month" id="daterange-charge" class="daterange-charge daterange" name="daterange-charge" />
             </div>
         </div>
 
@@ -29,7 +29,7 @@
                 Pagamento realizado
             </div>
             <div class="dashboard-filters__filter payment-filter">
-                <input type="month" id="daterange-payment" name="daterange-payment" />
+                <input type="month" id="daterange-payment" class="daterange-payment daterange" name="daterange-payment" />
             </div>
         </div>
 
@@ -38,12 +38,12 @@
                 Status da nota
             </div>
             <div class="dashboard-filters__filter status-filter">
-                <select type="select" class="status-filter__select">
-                    <option>Todos os status</option>
-                    <option>Emitida</option>
-                    <option>Cobrança realizada</option>
-                    <option>Pagamento em atraso</option>
-                    <option>Pagamento realizado</option>
+                <select name="select" type="select" class="status-filter__select invoice-status">
+                    <option value="">Todos os status</option>
+                    <option value="Emitida">Emitida</option>
+                    <option value="Cobrança realizada">Cobrança realizada</option>
+                    <option value="Pagamento em atraso">Pagamento em atraso</option>
+                    <option value="Pagamento realizado">Pagamento realizado</option>
                 </select>
             </div>
         </div>

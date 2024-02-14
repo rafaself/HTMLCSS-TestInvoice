@@ -111,13 +111,13 @@ export const generateInvoicesData = (invoicesDataSize = 10) => {
         // Datas
         var invoiceIssueDate = getRandomDateIn2023()
         var invoiceChargeDate = "-"
-        var paymentDate = "-"
+        var invoicePaymentDate = "-"
 
         if (invoiceStatus == statusList[3]) {
             var invoiceChargeDate = generateDatePlusTenDays(invoiceIssueDate)
         } else if (invoiceStatus == statusList[2]) {
             var invoiceChargeDate = generateDatePlusTenDays(invoiceIssueDate)
-            var paymentDate = generateDatePlusTenDays(invoiceChargeDate)
+            var invoicePaymentDate = generateDatePlusTenDays(invoiceChargeDate)
         } else if (invoiceStatus == statusList[1]) {
             var invoiceChargeDate = generateDatePlusTenDays(invoiceIssueDate)
         }
@@ -130,7 +130,7 @@ export const generateInvoicesData = (invoicesDataSize = 10) => {
             invoiceIssueDate,
             invoiceStatus,
             invoiceChargeDate,
-            paymentDate,
+            invoicePaymentDate,
             invoiceDocument,
             ticketDocument,
             invoiceValue
