@@ -11,7 +11,7 @@
     --color-surface-1:#7a6248;
     --color-surface-2:#968f4b;
     --color-surface-3:#fefdf9;
-    --color-brown-gradient: linear-gradient(180deg, #ab9597 1%, #fffbf0 15%);
+    --color-brown-gradient: linear-gradient(360deg, #ab9597 10%, #fffbf0 100%);
 }
 
 
@@ -21,7 +21,6 @@
     font-weight: 400;
     display: flex;
     flex-direction: row;
-    background: var(--color-brown-gradient);
     font-family: var(--font-primary);
     width: 100%;
     min-height: 100vh;
@@ -45,4 +44,11 @@ header {
     padding: 60px 0;
     display: flex;
     justify-content: space-between;
+}
+
+footer {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background: var(--color-brown-gradient);
 }

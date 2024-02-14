@@ -122,9 +122,13 @@ export const generateInvoicesData = (invoicesDataSize = 10) => {
         var chargeDate = "-"
         var paymentDate = "-"
 
-        if (invoiceStatus == statusList[2]) {
+        if (invoiceStatus == statusList[3]) {
+            var chargeDate = generateDatePlusTenDays(invoiceIssueDate)
+        } else if (invoiceStatus == statusList[2]) {
             var chargeDate = generateDatePlusTenDays(invoiceIssueDate)
             var paymentDate = generateDatePlusTenDays(chargeDate)
+        } else if (invoiceStatus == statusList[1]) {
+            var chargeDate = generateDatePlusTenDays(invoiceIssueDate)
         }
 
 
@@ -145,4 +149,4 @@ export const generateInvoicesData = (invoicesDataSize = 10) => {
     return invoicesDataTemp
 }
 
-export const invoicesData = generateInvoicesData(5)
+export const invoicesData = generateInvoicesData(100)
