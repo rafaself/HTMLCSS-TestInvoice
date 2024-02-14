@@ -66,15 +66,6 @@ const getRandomStatus = () => {
     return statusList[statusChoice]
 }
 
-const compareTwoDates = (invoiceData1, invoiceData2) => {
-    const [dayA, monthA, yearA] = invoiceData1.paymentDate.split('/');
-    const [dayB, monthB, yearB] = invoiceData2.paymentDate.split('/');
-
-    const dateA = new Date(`${yearA}-${monthA}-${dayA}`);
-    const dateB = new Date(`${yearB}-${monthB}-${dayB}`);
-    return dateA - dateB;
-}
-
 const getRandomDateIn2023 = () => {
     var month = getRndInteger(1, 13)
     var day = getRndInteger(1, 30)
@@ -119,16 +110,16 @@ export const generateInvoicesData = (invoicesDataSize = 10) => {
 
         // Datas
         var invoiceIssueDate = getRandomDateIn2023()
-        var chargeDate = "-"
+        var invoiceChargeDate = "-"
         var paymentDate = "-"
 
         if (invoiceStatus == statusList[3]) {
-            var chargeDate = generateDatePlusTenDays(invoiceIssueDate)
+            var invoiceChargeDate = generateDatePlusTenDays(invoiceIssueDate)
         } else if (invoiceStatus == statusList[2]) {
-            var chargeDate = generateDatePlusTenDays(invoiceIssueDate)
-            var paymentDate = generateDatePlusTenDays(chargeDate)
+            var invoiceChargeDate = generateDatePlusTenDays(invoiceIssueDate)
+            var paymentDate = generateDatePlusTenDays(invoiceChargeDate)
         } else if (invoiceStatus == statusList[1]) {
-            var chargeDate = generateDatePlusTenDays(invoiceIssueDate)
+            var invoiceChargeDate = generateDatePlusTenDays(invoiceIssueDate)
         }
 
 
@@ -138,7 +129,7 @@ export const generateInvoicesData = (invoicesDataSize = 10) => {
             invoiceNumber,
             invoiceIssueDate,
             invoiceStatus,
-            chargeDate,
+            invoiceChargeDate,
             paymentDate,
             invoiceDocument,
             ticketDocument,

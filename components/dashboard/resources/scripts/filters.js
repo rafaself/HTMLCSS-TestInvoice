@@ -1,20 +1,28 @@
 import { invoicesData } from "/components/dashboard/resources/scripts/generate_data.js";
-import { sortByDate, filterByIssueMonthAndYear } from "/components/dashboard/resources/scripts/utils.js";
+import { filterByMonthAndYear } from "/components/dashboard/resources/scripts/utils.js";
 
 var filterButton = $(".filter-button")
 var dashboardTableLines = $(".dashboard-table__lines")
 var dateRangeIssue = $(".daterange-issue")
+var dateRangeCharge = $(".daterange-charge")
 
 $(() => {
 
     filterButton.on("click", () => {
         dashboardTableLines.empty()
-        var dateIssueToFilter = dateRangeIssue.val()
+        var issueDateToFilter = dateRangeIssue.val()
+        var invoiceChargeDateToFilter = dateRangeCharge.val()
         var invoicesDataCopy = invoicesData;
 
-        var invoicesDataFilteredByMonth = filterByIssueMonthAndYear(invoicesDataCopy, dateIssueToFilter)
+        if (issueDateToFilter) {
+            invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, issueDateToFilter, "invoiceIssueDate")
+        }
+        
+        if (invoiceChargeDateToFilter) {
+            invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoiceChargeDateToFilter, "invoiceChargeDate")
+        }
 
-        for (const [, invoiceData] of Object.entries(invoicesDataFilteredByMonth)) {
+        for (const [, invoiceData] of Object.entries(invoicesDataCopy)) {
             newLine(invoiceData);
         }
 
@@ -40,7 +48,7 @@ function newLine(
                     <!-- Data da Emissão da Nota -->
                     <td>${invoiceData.invoiceIssueDate}</td>
                     <!-- Data da Cobrança -->
-                    <td>${invoiceData.chargeDate}</td>
+                    <td>${invoiceData.invoiceChargeDate}</td>
                     <!-- Data do Pagamento -->
                     <td>${invoiceData.paymentDate}</td>
                     <!-- Valor da Nota -->

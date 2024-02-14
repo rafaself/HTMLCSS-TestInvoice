@@ -8,14 +8,14 @@ const sortByDateFunction = (invoiceData1, invoiceData2) => {
 }
 
 export const sortByDate = (invoiceData) => {
-    return invoiceData.filter(val => val.paymentDate != null).sort(sortByDateFunction);
+    return invoiceData.filter(val => val.paymentDate != "-").sort(sortByDateFunction);
 }
 
-export const filterByIssueMonthAndYear = (invoicesData, dateIssueToFilter) => {
+export const filterByMonthAndYear = (invoicesData, dateIssueToFilter, dateType) => {
     var [yearToFilter, monthToFilter] = dateIssueToFilter.split('-')
 
     var invoicesDataFiltered = invoicesData.filter((invoiceData) => {
-        var [_, invoiceMonthIssued, invoiceYearIssued] = invoiceData.invoiceIssueDate.split('/')
+        var [_, invoiceMonthIssued, invoiceYearIssued] = invoiceData[dateType].split('/')
         return invoiceMonthIssued == monthToFilter & invoiceYearIssued == yearToFilter
     })
 
