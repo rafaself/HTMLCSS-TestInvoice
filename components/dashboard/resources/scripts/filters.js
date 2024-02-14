@@ -1,24 +1,34 @@
 import { invoicesData } from "/components/dashboard/resources/data/data.js";
 import { sortByDate } from "/components/dashboard/resources/scripts/utils.js";
 
-
-console.log("opa 43412");
+var filterButton = $(".filter-button")
+var dashboardTableLines = $(".dashboard-table__lines")
 
 $(() => {
-    var invoicesDataCopy = [...invoicesData];
-    invoicesDataCopy = sortByDate(invoicesDataCopy);
 
-    console.log(invoicesData)
+    filterButton.on("click", () => {
+        dashboardTableLines.empty()
 
-    for (const [, invoiceData] of Object.entries(invoicesDataCopy)) {
+        var invoicesDataCopy = invoicesData;
+        invoicesDataCopy = sortByDate(invoicesDataCopy);
+
+        for (const [, invoiceData] of Object.entries(invoicesDataCopy)) {
+            newLine(invoiceData);
+        }
+
+    })
+
+
+    for (const [, invoiceData] of Object.entries(invoicesData)) {
         newLine(invoiceData);
     }
+
 });
 
 function newLine(
     invoiceData
 ) {
-    $(".dashboard-table__lines").append(`
+    dashboardTableLines.append(`
                 <tr>
                     <!-- ID -->
                     <th scope="row">${invoiceData.id}</th>
