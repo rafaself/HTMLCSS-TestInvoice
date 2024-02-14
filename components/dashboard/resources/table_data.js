@@ -8,7 +8,7 @@ export const populateTable = (invoicesDataEntry) => {
     }
 }
 
-export const configButtonAction = () => {
+export const configButtonAction = (invoicesDataEntry) => {
     var filterButton = $(".filter-button")
     var dateRangeIssue = $(".daterange-issue")
     var dateRangeCharge = $(".daterange-charge")
@@ -22,7 +22,7 @@ export const configButtonAction = () => {
         var invoicePaymentDateToFilter = dateRangePayment.val()
         var invoiceStatusToFilter = invoiceStatus.val()
 
-        var invoicesDataCopy = invoicesData;
+        var invoicesDataCopy = invoicesDataEntry;
 
         if (invoiceIssueDateToFilter) {
             invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoiceIssueDateToFilter, "invoiceIssueDate")

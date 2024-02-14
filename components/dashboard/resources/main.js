@@ -4,7 +4,7 @@ import { populateTable, configButtonAction } from "/components/dashboard/resourc
 
 $(() => {
 
-    configButtonAction()
+    configButtonAction(invoicesData)
     populateCards(invoicesData)
     populateTable(invoicesData)
 
