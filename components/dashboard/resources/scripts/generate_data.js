@@ -51,7 +51,7 @@ var names = [
 ];
 
 
-const statusList = ["Pagamento realizado", "Emitida", "Pagamento em atraso", "Cobrança realizada"];
+const statusList = ["Emitida", "Cobrança realizada", "Pagamento realizado", "Pagamento em atraso"];
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -63,14 +63,29 @@ function getRndFloat(min, max) {
 
 const getRandomStatus = () => {
     const statusChoice = getRndInteger(0, 4);
-    console.log(statusList[statusChoice])
     return statusList[statusChoice]
+}
+
+const compareTwoDates = (invoiceData1, invoiceData2) => {
+    const [dayA, monthA, yearA] = invoiceData1.paymentDate.split('/');
+    const [dayB, monthB, yearB] = invoiceData2.paymentDate.split('/');
+
+    const dateA = new Date(`${yearA}-${monthA}-${dayA}`);
+    const dateB = new Date(`${yearB}-${monthB}-${dayB}`);
+    return dateA - dateB;
 }
 
 const getRandomDateIn2023 = () => {
     var month = getRndInteger(1, 13)
     var day = getRndInteger(1, 30)
     return new Date(`2024-${month}-${day}`).toLocaleString("pt-br").split(",")[0]
+}
+
+const generateDatePlusTenDays = (date) => {
+    var [day, month, _] = date.split("/")
+    var issueDate = new Date(`2024-${month}-${day}`)
+    var charDate = (new Date(issueDate.setDate(issueDate.getDate() + 10))).toLocaleString("pt-br").split(",")[0]
+    return charDate
 }
 
 const generateRandomSequence = (size) => {
@@ -104,12 +119,14 @@ export const generateInvoicesData = (invoicesDataSize = 10) => {
 
         // Datas
         var invoiceIssueDate = getRandomDateIn2023()
-        var chargeDate = getRandomDateIn2023()
-        var paymentDate = null
+        var chargeDate = "-"
+        var paymentDate = "-"
 
-        if (invoiceStatus == statusList[0]) {
-            var paymentDate = getRandomDateIn2023()
+        if (invoiceStatus == statusList[2]) {
+            var chargeDate = generateDatePlusTenDays(invoiceIssueDate)
+            var paymentDate = generateDatePlusTenDays(chargeDate)
         }
+
 
         var invoice = {
             id,
@@ -128,4 +145,4 @@ export const generateInvoicesData = (invoicesDataSize = 10) => {
     return invoicesDataTemp
 }
 
-export const invoicesData = generateInvoicesData(100)
+export const invoicesData = generateInvoicesData(5)

@@ -1,4 +1,4 @@
-import { invoicesData } from "/components/dashboard/resources/data/data.js";
+import { invoicesData } from "/components/dashboard/resources/scripts/generate_data.js";
 import { sortByDate, filterByIssueMonthAndYear } from "/components/dashboard/resources/scripts/utils.js";
 
 var filterButton = $(".filter-button")
