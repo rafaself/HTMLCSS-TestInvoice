@@ -1,11 +1,16 @@
 import { invoicesData } from "/components/dashboard/resources/data/data.js";
 import { sortByDate } from "/components/dashboard/resources/scripts/utils.js";
 
+
+console.log("opa 43412");
+
 $(() => {
     var invoicesDataCopy = [...invoicesData];
     invoicesDataCopy = sortByDate(invoicesDataCopy);
 
-    for (const [, invoiceData] of Object.entries(invoicesDataCopy)) { // Usar [, invoiceData]
+    console.log(invoicesData)
+
+    for (const [, invoiceData] of Object.entries(invoicesDataCopy)) {
         newLine(invoiceData);
     }
 });
