@@ -1,14 +1,24 @@
-import { invoicesData } from "/components/dashboard/resources/scripts/generate_data.js";
-import { filterByMonthAndYear } from "/components/dashboard/resources/scripts/utils.js";
-
-var filterButton = $(".filter-button")
-var dashboardTableLines = $(".dashboard-table__lines")
-var dateRangeIssue = $(".daterange-issue")
-var dateRangeCharge = $(".daterange-charge")
-var dateRangePayment = $(".daterange-payment")
-var invoiceStatus = $(".invoice-status")
+import { invoicesData } from "/components/dashboard/resources/generate_data.js";
+import { filterByMonthAndYear } from "/components/dashboard/resources/utils.js";
 
 $(() => {
+
+    configButtonAction()
+    populateTable(invoicesData)
+
+});
+
+const populateCards = () => {
+    
+}
+
+const configButtonAction = () => {
+    var filterButton = $(".filter-button")
+    var dashboardTableLines = $(".dashboard-table__lines")
+    var dateRangeIssue = $(".daterange-issue")
+    var dateRangeCharge = $(".daterange-charge")
+    var dateRangePayment = $(".daterange-payment")
+    var invoiceStatus = $(".invoice-status")
 
     filterButton.on("click", () => {
         dashboardTableLines.empty()
@@ -22,34 +32,31 @@ $(() => {
         if (invoiceIssueDateToFilter) {
             invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoiceIssueDateToFilter, "invoiceIssueDate")
         }
-        
+
         if (invoiceChargeDateToFilter) {
             invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoiceChargeDateToFilter, "invoiceChargeDate")
         }
-        
+
         if (invoicePaymentDateToFilter) {
             invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoicePaymentDateToFilter, "invoicePaymentDate")
         }
-        
+
         if (invoiceStatusToFilter != "") {
             invoicesDataCopy = invoicesDataCopy.filter(invoiceData => invoiceData.invoiceStatus == invoiceStatusToFilter)
         }
 
-        for (const [, invoiceData] of Object.entries(invoicesDataCopy)) {
-            newLine(invoiceData);
-        }
+        populateTable(invoicesDataCopy)
 
     })
+}
 
-    for (const [, invoiceData] of Object.entries(invoicesData)) {
+const populateTable = (invoicesDataEntry) => {
+    for (const [, invoiceData] of Object.entries(invoicesDataEntry)) {
         newLine(invoiceData);
     }
+}
 
-});
-
-function newLine(
-    invoiceData
-) {
+const newLine = (invoiceData) => {
     dashboardTableLines.append(`
                 <tr>
                     <!-- ID -->
