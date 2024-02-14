@@ -48,7 +48,7 @@
                     <!-- Data do Pagamento -->
                     <td>${invoiceData.paymentDate}</td>
                     <!-- Valor da Nota -->
-                    <td>R$ ${invoiceData.invoiceValue}</td>
+                    <td>R$ ${invoiceData.invoiceValue.toFixed(2).replace(".", ",")}</td>
                     <!-- Documento da Nota Fiscal -->
                     <td>${invoiceData.invoiceDocument}</td>
                     <!-- Documento do Boleto Bancário -->

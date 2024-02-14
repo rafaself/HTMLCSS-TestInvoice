@@ -1,4 +1,19 @@
 .dashboard-table {
-    border: solid 1px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.table-striped>thead>tr>th {
+    color: var(--color-primary);
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: var(--color-surface-2);
+    color: var(--color-surface-3);
+}
+
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even)>th {
+    background-color: var(--color-surface-3);
+    color: var(--color-surface-2);
 }
