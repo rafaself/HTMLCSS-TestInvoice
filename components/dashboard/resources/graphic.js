@@ -1,9 +1,31 @@
 let myChart
+let myChartForDefault
 
 const graphicSetup = (labels, datasets) => {
   var ctx = document.getElementById('myChart')
   myChart = new Chart(ctx, {
     type: 'bar',
+    data: {
+      labels: labels,
+      datasets: datasets
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          boxPadding: 3
+        }
+      }
+    }
+  })
+}
+
+const graphicSetupForDefault = (labels, datasets, type) => {
+  var ctx = document.getElementById('myChart-default')
+  myChartForDefault = new Chart(ctx, {
+    type: type,
     data: {
       labels: labels,
       datasets: datasets
@@ -99,6 +121,36 @@ const getValues = (labels, invoicesData, groupingOption = groupingOptions.MONTHL
   return values
 }
 
+const getValuesForDefault = (labels, invoicesData, groupingOption = groupingOptions.MONTHLY) => {
+  let values = []
+  invoicesData = invoicesData.filter(el => el.invoiceStatus == "Pagamento em atraso")
+
+  switch (groupingOption) {
+    case groupingOptions.MONTHLY:
+      for (var label of labels) {
+        var invoicesDataFilteredByDate = invoicesData.filter(el => el.invoiceIssueDate.includes(label) )
+        values.push(invoicesDataFilteredByDate.length)
+      }
+      break
+    case groupingOptions.SEMIANNUALLY:
+      for (var label of labels) {
+        let semesters = [1, 2]
+        for (var semester of semesters) {
+          var invoicesDataFilteredByDate = invoicesData.filter(el => {
+            return checkSemester(el.invoiceIssueDate) == semester
+          })
+          values.push(invoicesDataFilteredByDate.length)
+        }
+      }
+      break
+    case groupingOptions.ANNUALLY:
+      values.push(invoicesData.length)
+      break
+  }
+
+  return values
+}
+
 const getDatasets = (values) => {
   return [
     {
@@ -115,7 +167,13 @@ export const configChart = (invoicesData) => {
   let labels = getLabels(invoicesData)
   let values = getValues(labels, invoicesData)
   let datasets = getDatasets(values)
-  graphicSetup(labels, datasets)
+  graphicSetup(labels, datasets, "bar")
+  
+  
+  // Inadimplências
+  let valuesForDefault = getValuesForDefault(labels, invoicesData)
+  let datasetsForDefault = getDatasets(valuesForDefault)
+  graphicSetupForDefault(labels, datasetsForDefault, "line")
 }
 
 export const updateChart = (invoicesData, groupingOptionPassed) => {
