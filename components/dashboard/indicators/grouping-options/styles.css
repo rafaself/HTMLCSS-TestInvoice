@@ -9,6 +9,14 @@
     background-color: transparent;
     padding: 8px 24px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.grouping-options__options__button.active {
+    background-color: var(--color-surface-2);
+    color: var(--color-surface-3);
+    transition: background-color 0.9s ease;
+    transition: color 0.9s ease;
 }
 
 .grouping-options__options__button:hover {
