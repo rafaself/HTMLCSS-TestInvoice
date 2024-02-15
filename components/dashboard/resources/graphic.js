@@ -155,7 +155,7 @@ const getDatasets = (values) => {
   return [
     {
       data: values,
-      backgroundColor: '#007bff',
+      backgroundColor: '#7a6248',
       borderWidth: 4,
       borderRadius: 4,
       pointBackgroundColor: '#007bff'
@@ -173,13 +173,19 @@ export const configChart = (invoicesData) => {
   // Inadimplências
   let valuesForDefault = getValuesForDefault(labels, invoicesData)
   let datasetsForDefault = getDatasets(valuesForDefault)
-  graphicSetupForDefault(labels, datasetsForDefault, "line")
+  graphicSetupForDefault(labels, datasetsForDefault, "bar")
 }
 
 export const updateChart = (invoicesData, groupingOptionPassed) => {
   let labels = getLabels(invoicesData, groupingOptionPassed)
+
   let values = getValues(labels, invoicesData, groupingOptionPassed)
   myChart.data.labels = labels
   myChart.data.datasets = getDatasets(values)
   myChart.update()
+
+  let valuesForDefault = getValuesForDefault(labels, invoicesData, groupingOptionPassed)
+  myChartForDefault.data.labels = labels
+  myChartForDefault.data.datasets = getDatasets(valuesForDefault)
+  myChartForDefault.update()
 }
