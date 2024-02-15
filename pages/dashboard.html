@@ -1,14 +1,12 @@
 <body>
     <section>
-        <div id="dashboard-cards-test"></div>
-        <div id="dashboard-graphic"></div>
+        <div id="dashboard-indicators"></div>
         <div id="dashboard-table"></div>
     </section>
 
     <script>
         $().ready(function () {
-            $("#dashboard-cards-test").load("components/dashboard/indicators/cards/template.html");
-            $("#dashboard-graphic").load("components/dashboard/indicators/values_issue_graphic/template.html");
+            $("#dashboard-indicators").load("components/dashboard/indicators/template.html");
             $("#dashboard-table").load("components/dashboard/table/template.html");
         });
     </script>
