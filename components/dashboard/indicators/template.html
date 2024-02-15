@@ -1,16 +1,17 @@
 <body>
 
     <div class="dashboard-title">
-        <h4>Indicadores</h4>
+        <h4>Estatísticas</h4>
     </div>
 
+    <div id="indicators-group-options"></div>
     <div id="indicators-cards"></div>
     <div id="indicators-issued-graphic"></div>
 
     <script>
         $().ready(function () {
             $("#indicators-cards").load("components/dashboard/indicators/cards/template.html");
-            $("#indicators-issued-graphic").load("components/dashboard/indicators/values_issue_graphic/template.html");
+            $("#indicators-issued-graphic").load("components/dashboard/indicators/values-issue-graphic/template.html");
         });
     </script>
 </body>
