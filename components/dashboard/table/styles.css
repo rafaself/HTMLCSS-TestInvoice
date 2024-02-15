@@ -2,10 +2,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.table-content {
-    padding: 9px 48px;
-}
-
 .table-striped>thead>tr>th {
     color: var(--color-primary);
 }
@@ -22,15 +18,12 @@
     color: var(--color-surface-2);
 }
 
-.dashboard-title {
-    margin: 18px 26px;
-}
+
 
 .dashboard-filters {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 9px 48px;
 }
 
 
@@ -39,9 +32,9 @@
 }
 
 .filters-button-content {
-    padding: 16px 48px;
-    display:flex;
-    width:100%;
+    margin: 24px 0;
+    display: flex;
+    width: 100%;
     justify-content: end;
 }
 
@@ -61,7 +54,8 @@
     outline: none;
 }
 
-.daterange, .invoice-status {
+.daterange,
+.invoice-status {
     outline: none;
     border: none;
     border-radius: 6px;
