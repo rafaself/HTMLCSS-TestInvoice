@@ -1,5 +1,7 @@
 <body>
 
+    <div id="dashboard-filters"></div>
+
     <div class="table-content">
         <table class="table table-striped dashboard-table">
 
@@ -22,6 +24,10 @@
 
         </table>
     </div>
-    <script type="module" src="/components/dashboard/resources/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#dashboard-filters").load("components/dashboard/table/filters.html");
+        });
+    </script>
 
 </body>
