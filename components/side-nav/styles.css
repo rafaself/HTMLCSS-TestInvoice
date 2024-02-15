@@ -1,7 +1,7 @@
 #side-nav {
     position: fixed;
     top: 0;
-    left: -260px; /* Inicialmente fora da tela */
+    left: -260px;
     width: 260px;
     padding-left: 16px;
     background-color: var(--color-surface-3);
@@ -10,7 +10,7 @@
 }
 
 .side-nav__active {
-    transform: translateX(260px); /* Trás o menu para a tela */
+    transform: translateX(260px);
 }
 
 .side-nav__brand {

@@ -128,7 +128,7 @@ const getValuesForDefault = (labels, invoicesData, groupingOption = groupingOpti
   switch (groupingOption) {
     case groupingOptions.MONTHLY:
       for (var label of labels) {
-        var invoicesDataFilteredByDate = invoicesData.filter(el => el.invoiceIssueDate.includes(label) )
+        var invoicesDataFilteredByDate = invoicesData.filter(el => el.invoiceIssueDate.includes(label))
         values.push(invoicesDataFilteredByDate.length)
       }
       break
@@ -168,8 +168,8 @@ export const configChart = (invoicesData) => {
   let values = getValues(labels, invoicesData)
   let datasets = getDatasets(values)
   graphicSetup(labels, datasets, "bar")
-  
-  
+
+
   // Inadimplências
   let valuesForDefault = getValuesForDefault(labels, invoicesData)
   let datasetsForDefault = getDatasets(valuesForDefault)
