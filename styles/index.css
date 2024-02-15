@@ -5,11 +5,11 @@
 
 :root {
     --font-primary: "Poppins";
-    --color-primary:#030506;
-    --color-secondary:#ab9597;
-    --color-surface-1:#7a6248;
-    --color-surface-2:#968f4b;
-    --color-surface-3:#fefdf9;
+    --color-primary: #030506;
+    --color-secondary: #ab9597;
+    --color-surface-1: #7a6248;
+    --color-surface-2: #968f4b;
+    --color-surface-3: #fefdf9;
     --color-brown-gradient: linear-gradient(360deg, #fffbf0 10%, #fffbff 100%);
 }
 
@@ -24,7 +24,6 @@
     width: 100%;
     min-height: 100vh;
     padding: 12px 36px;
-
 }
 
 .content {
@@ -32,13 +31,13 @@
     flex-direction: column;
     flex-grow: 1;
     margin-left: 260px;
-    width: calc(100% - 260px); 
+    width: calc(100% - 260px);
     transition: margin-left 0.5s ease, width 0.5s ease;
 }
 
 .content__active {
-    margin-left: 0; 
-    width: 100%; 
+    margin-left: 0;
+    width: 100%;
 }
 
 header {
