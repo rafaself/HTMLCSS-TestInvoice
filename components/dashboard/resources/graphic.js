@@ -1,6 +1,8 @@
+var myChart
+
 const graphicSetup = (labels, datasets) => {
-  const ctx = document.getElementById('myChart')
-  new Chart(ctx, {
+  var ctx = document.getElementById('myChart')
+  myChart = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: labels,
@@ -24,15 +26,13 @@ const convertToDate = (str) => {
   return new Date(year, month - 1);
 };
 
-const groupingOptions = {
+export const groupingOptions = {
   MONTHLY: "monthly",
   SEMIANNUALLY: "semiannually",
   ANUALLY: "anually"
 }
 
-let groupingOption = groupingOptions.MONTHLY
-
-const getLabels = (invoicesData) => {
+const getLabels = (invoicesData, groupingOption) => {
   const invoicesPaymentDatesMapped = invoicesData.map(el => {
     const [_, month, year] = el.invoiceIssueDate.split('/');
     return `${month}/${year}`;
@@ -44,10 +44,10 @@ const getLabels = (invoicesData) => {
 
   if (groupingOption == groupingOptions.SEMIANNUALLY) {
     labels = ["1º Semestre", "2º Semestre"]
-  } 
-  // else if (groupingOption == groupingOptions.ANNUALLY) {
-  //   labels = ["2024"]
-  // }
+  }
+  else if (groupingOption == groupingOptions.ANUALLY) {
+    labels = ["2024"]
+  }
 
   return labels;
 }
@@ -58,33 +58,42 @@ const checkSemester = (date) => {
   return month <= 6 ? 1 : 2
 }
 
-const getValues = (labels, invoicesData) => {
+const getValues = (labels, invoicesData, groupingOption) => {
   let values = []
-  
-  if (groupingOption == groupingOptions.MONTHLY) {
-    for (var label of labels) {
-      var invoicesDataFilteredByDate = invoicesData.filter(el => el.invoiceIssueDate.includes(label))
-      var sum = 0
-      for (var invoiceData of invoicesDataFilteredByDate) {
-        sum += invoiceData.invoiceValue
-      }
-      values.push(sum)
-    }
-  } else if (groupingOption == groupingOptions.SEMIANNUALLY) {
-    for (var label of labels) {
-      let semesters = [1, 2]
-      let sum = 0
-      for (var semester of semesters) {
-        var invoicesDataFilteredByDate = invoicesData.filter(el => {
-          return checkSemester(el.invoiceIssueDate) == semester
-        })
+
+  switch (groupingOption) {
+    case groupingOptions.MONTHLY:
+      for (var label of labels) {
+        var invoicesDataFilteredByDate = invoicesData.filter(el => el.invoiceIssueDate.includes(label))
+        let sum = 0
         for (var invoiceData of invoicesDataFilteredByDate) {
           sum += invoiceData.invoiceValue
         }
         values.push(sum)
       }
-    }
-    console.log(values)
+      break
+    case groupingOptions.SEMIANNUALLY:
+      for (var label of labels) {
+        let semesters = [1, 2]
+        let sum = 0
+        for (var semester of semesters) {
+          var invoicesDataFilteredByDate = invoicesData.filter(el => {
+            return checkSemester(el.invoiceIssueDate) == semester
+          })
+          for (var invoiceData of invoicesDataFilteredByDate) {
+            sum += invoiceData.invoiceValue
+          }
+          values.push(sum)
+        }
+      }
+      break
+    case groupingOptions.ANUALLY:
+      let sum = 0
+      for (var invoiceData of invoicesData) {
+        sum += invoiceData.invoiceValue
+      }
+      values.push(sum)
+      break
   }
 
   return values
@@ -102,9 +111,9 @@ const getDatasets = (values) => {
   ]
 }
 
-export const configGraphic = (invoicesData) => {
-  const labels = getLabels(invoicesData)
-  const values = getValues(labels, invoicesData)
-  const datasets = getDatasets(values)
+export const configChart = (invoicesData, groupingOption, reuse = false) => {
+  let labels = getLabels(invoicesData, groupingOption)
+  let values = getValues(labels, invoicesData, groupingOption)
+  let datasets = getDatasets(values)
   graphicSetup(labels, datasets)
 }
