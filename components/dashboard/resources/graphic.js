@@ -1,35 +1,6 @@
-const labels = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday'
-]
-
-var datasets = [
-  {
-    data: [
-      15339,
-      21345,
-      18483,
-      24003,
-      23489,
-      24092,
-      12034
-    ],
-    lineTension: 0,
-    backgroundColor: 'transparent',
-    borderColor: '#007bff',
-    borderWidth: 4,
-    pointBackgroundColor: '#007bff'
-  }
-]
-
 const graphicSetup = (labels, datasets) => {
   const ctx = document.getElementById('myChart')
-  const myChart = new Chart(ctx, {
+  new Chart(ctx, {
     type: 'line',
     data: {
       labels: labels,
@@ -49,24 +20,53 @@ const graphicSetup = (labels, datasets) => {
 }
 
 const convertToDate = (str) => {
-  const parts = str.split('/');
-  return new Date(parts[2], parts[1] - 1, parts[0]);
+  const [month, year] = str.split('/');
+  return new Date(year, month - 1);
 };
 
 const getLabels = (invoicesData) => {
-  var invoicesPaymentDatesFilter = invoicesData.filter(el => el.invoicePaymentDate != "-")
-  var invoicesPaymentDatesMapped = invoicesPaymentDatesFilter.map(el => el.invoicePaymentDate)
+  const invoicesPaymentDatesMapped = invoicesData.map(el => {
+    const [_, month, year] = el.invoiceIssueDate.split('/');
+    return `${month}/${year}`;
+  });
 
-  var invoiesPaymentDatesSet = Array.from(new Set(invoicesPaymentDatesMapped))
+  const uniquePaymentDates = Array.from(new Set(invoicesPaymentDatesMapped))
 
-  var invoicesPaymentDates = invoiesPaymentDatesSet.sort((a, b) => convertToDate(a) - convertToDate(b))
+  const sortedPaymentDates = uniquePaymentDates.sort((date1, date2) => convertToDate(date1) - convertToDate(date2));
+  console.log(sortedPaymentDates)
+  return sortedPaymentDates;
+}
 
-  return invoicesPaymentDates
+
+const getValues = (labels, invoicesData) => {
+  var values = []
+  for (var label of labels) {
+    var invoicesDataFilteredByDate = invoicesData.filter(el => el.invoiceIssueDate.includes(label))
+    var sum = 0
+    for (var invoiceData of invoicesDataFilteredByDate) {
+      sum += invoiceData.invoiceValue
+    }
+    values.push(sum)
+  }
+  return values
+}
+
+const getDatasets = (values) => {
+  return [
+    {
+      data: values,
+      lineTension: 0,
+      backgroundColor: 'transparent',
+      borderColor: '#007bff',
+      borderWidth: 4,
+      pointBackgroundColor: '#007bff'
+    }
+  ]
 }
 
 export const configGraphic = (invoicesData) => {
-  
-  var labels = getLabels(invoicesData)
-
+  const labels = getLabels(invoicesData)
+  const values = getValues(labels, invoicesData)
+  const datasets = getDatasets(values)
   graphicSetup(labels, datasets)
 }
