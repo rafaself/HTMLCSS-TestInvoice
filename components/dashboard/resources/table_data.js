@@ -9,13 +9,24 @@ export const populateTable = (invoicesDataEntry) => {
 }
 
 export const configButtonAction = (invoicesDataEntry) => {
-    var filterButton = $(".filter-button")
+    var addFiltersButton = $(".add-filters")
+    var cleanFiltersButton = $(".clean-filters")
     var dateRangeIssue = $(".daterange-issue")
     var dateRangeCharge = $(".daterange-charge")
     var dateRangePayment = $(".daterange-payment")
     var invoiceStatus = $(".invoice-status")
 
-    filterButton.on("click", () => {
+    cleanFiltersButton.on("click", () => {
+        dashboardTableLines.empty()
+        dateRangeIssue.val("")
+        dateRangeCharge.val("")
+        dateRangePayment.val("")
+        invoiceStatus.val("")
+
+        populateTable(invoicesDataEntry)
+    })
+
+    addFiltersButton.on("click", () => {
         dashboardTableLines.empty()
         var invoiceIssueDateToFilter = dateRangeIssue.val()
         var invoiceChargeDateToFilter = dateRangeCharge.val()
