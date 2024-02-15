@@ -1,4 +1,4 @@
-var myChart
+let myChart
 
 const graphicSetup = (labels, datasets) => {
   var ctx = document.getElementById('myChart')
@@ -29,10 +29,10 @@ const convertToDate = (str) => {
 export const groupingOptions = {
   MONTHLY: "monthly",
   SEMIANNUALLY: "semiannually",
-  ANUALLY: "anually"
+  ANNUALLY: "annually"
 }
 
-const getLabels = (invoicesData, groupingOption) => {
+const getLabels = (invoicesData, groupingOption = groupingOptions.MONTHLY) => {
   const invoicesPaymentDatesMapped = invoicesData.map(el => {
     const [_, month, year] = el.invoiceIssueDate.split('/');
     return `${month}/${year}`;
@@ -45,7 +45,7 @@ const getLabels = (invoicesData, groupingOption) => {
   if (groupingOption == groupingOptions.SEMIANNUALLY) {
     labels = ["1º Semestre", "2º Semestre"]
   }
-  else if (groupingOption == groupingOptions.ANUALLY) {
+  else if (groupingOption == groupingOptions.ANNUALLY) {
     labels = ["2024"]
   }
 
@@ -58,7 +58,7 @@ const checkSemester = (date) => {
   return month <= 6 ? 1 : 2
 }
 
-const getValues = (labels, invoicesData, groupingOption) => {
+const getValues = (labels, invoicesData, groupingOption = groupingOptions.MONTHLY) => {
   let values = []
 
   switch (groupingOption) {
@@ -87,7 +87,7 @@ const getValues = (labels, invoicesData, groupingOption) => {
         }
       }
       break
-    case groupingOptions.ANUALLY:
+    case groupingOptions.ANNUALLY:
       let sum = 0
       for (var invoiceData of invoicesData) {
         sum += invoiceData.invoiceValue
@@ -111,9 +111,17 @@ const getDatasets = (values) => {
   ]
 }
 
-export const configChart = (invoicesData, groupingOption, reuse = false) => {
-  let labels = getLabels(invoicesData, groupingOption)
-  let values = getValues(labels, invoicesData, groupingOption)
+export const configChart = (invoicesData) => {
+  let labels = getLabels(invoicesData)
+  let values = getValues(labels, invoicesData)
   let datasets = getDatasets(values)
   graphicSetup(labels, datasets)
+}
+
+export const updateChart = (invoicesData, groupingOptionPassed) => {
+  let labels = getLabels(invoicesData, groupingOptionPassed)
+  let values = getValues(labels, invoicesData, groupingOptionPassed)
+  myChart.data.labels = labels
+  myChart.data.datasets = getDatasets(values)
+  myChart.update()
 }
