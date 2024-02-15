@@ -4,12 +4,13 @@
         <h4>Estatísticas</h4>
     </div>
 
-    <div id="indicators-group-options"></div>
+    <div id="indicators-grouping-options"></div>
     <div id="indicators-cards"></div>
     <div id="indicators-issued-graphic"></div>
 
     <script>
         $().ready(function () {
+            $("#indicators-grouping-options").load("components/dashboard/indicators/grouping-options/template.html");
             $("#indicators-cards").load("components/dashboard/indicators/cards/template.html");
             $("#indicators-issued-graphic").load("components/dashboard/indicators/values-issue-graphic/template.html");
         });
