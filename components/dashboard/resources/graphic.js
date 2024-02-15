@@ -27,7 +27,7 @@ var datasets = [
   }
 ]
 
-const graphicConfig = () => {
+const graphicSetup = (labels, datasets) => {
   const ctx = document.getElementById('myChart')
   const myChart = new Chart(ctx, {
     type: 'line',
@@ -48,4 +48,25 @@ const graphicConfig = () => {
   })
 }
 
-graphicConfig();
+const convertToDate = (str) => {
+  const parts = str.split('/');
+  return new Date(parts[2], parts[1] - 1, parts[0]);
+};
+
+const getLabels = (invoicesData) => {
+  var invoicesPaymentDatesFilter = invoicesData.filter(el => el.invoicePaymentDate != "-")
+  var invoicesPaymentDatesMapped = invoicesPaymentDatesFilter.map(el => el.invoicePaymentDate)
+
+  var invoiesPaymentDatesSet = Array.from(new Set(invoicesPaymentDatesMapped))
+
+  var invoicesPaymentDates = invoiesPaymentDatesSet.sort((a, b) => convertToDate(a) - convertToDate(b))
+
+  return invoicesPaymentDates
+}
+
+export const configGraphic = (invoicesData) => {
+  
+  var labels = getLabels(invoicesData)
+
+  graphicSetup(labels, datasets)
+}

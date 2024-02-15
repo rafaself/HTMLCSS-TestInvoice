@@ -4,7 +4,6 @@ const getSumOfIssuedsInvoices = (invoicesDataEntry, withCharge = true) => {
     var invoicesDataIssued = invoicesDataEntry.filter(invoiceData => {
         var statusToCompare = ["Emitida", "Cobrança realizada", "Pagamento realizado", "Pagamento em atraso"]
 
-        console.log(statusToCompare.includes(invoiceData.invoiceStatus))
         return statusToCompare.includes(invoiceData.invoiceStatus)
     }
     )
