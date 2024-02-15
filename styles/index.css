@@ -7,11 +7,11 @@
 :root {
     --font-primary: "Poppins";
     --color-primary: #030506;
-    --color-secondary: #ab9597;
-    --color-surface-1: #7a6248;
-    --color-surface-2: #968f4b;
-    --color-surface-3: #fefdf9;
-    --color-brown-gradient: linear-gradient(360deg, #fffbf0 10%, #fffbff 100%);
+    --color-secondary: #AB9597;
+    --color-surface-1: #7A6248;
+    --color-surface-2: #968F4B;
+    --color-surface-3: #FEFDF9;
+    --color-brown-gradient: linear-gradient(360deg, #FFFBF0 10%, #FFFBFF 100%);
 }
 
 
