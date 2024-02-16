@@ -1,3 +1,5 @@
+import { handleNavSideStyles } from "./views/side-nav/handle_side_nav_styles.js"
+
 const renderHome = () => {
     $("#page").load("pages/dashboard.html");
 };
@@ -8,6 +10,7 @@ const renderInvoicesTable = () => {
 
 const handleRoute = () => {
     const path = window.location.hash;
+    handleNavSideStyles(path)
     switch (path) {
         case '#/':
             renderHome();
