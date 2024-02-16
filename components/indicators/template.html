@@ -1,0 +1,20 @@
+<body>
+
+    <div class="dashboard-title">
+        <h4>Estatísticas</h4>
+    </div>
+
+    <div id="indicators-grouping-options"></div>
+    <div id="indicators-cards"></div>
+    <div id="indicators-issued-graphic"></div>
+    <div id="indicators-default-graphic"></div>
+
+    <script>
+        $().ready(function () {
+            $("#indicators-grouping-options").load("components/indicators/grouping-options/template.html");
+            $("#indicators-cards").load("components/indicators/cards/template.html");
+            $("#indicators-issued-graphic").load("components/indicators/values-issue-graphic/template.html");
+            $("#indicators-default-graphic").load("components/indicators/default-graphic/template.html");
+        });
+    </script>
+</body>

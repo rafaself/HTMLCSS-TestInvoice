@@ -1,8 +1,8 @@
 @import url("/views/header/styles.css");
 @import url("/views/side-nav/styles.css");
-@import url("/components/dashboard/indicators/cards/styles.css");
-@import url("/components/dashboard/indicators/grouping-options/styles.css");
-@import url("/components/dashboard/table/styles.css");
+@import url("/components/indicators/cards/styles.css");
+@import url("/components/indicators/grouping-options/styles.css");
+@import url("/components/table/styles.css");
 
 :root {
     --font-primary: "Poppins";

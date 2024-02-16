@@ -1,4 +1,4 @@
-import { filterByMonthAndYear } from "/components/dashboard/resources/utils.js";
+import { filterByMonthAndYear } from "/components/resources/utils.js";
 
 var dashboardTableLines = $(".dashboard-table__lines")
 
