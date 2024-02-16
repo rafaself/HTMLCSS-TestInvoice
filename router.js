@@ -8,6 +8,10 @@ const renderInvoicesTable = () => {
     $("#page").load("pages/invoices_table.html");
 };
 
+const renderPageNotFound = () => {
+    $("#page").load("pages/page-not-found.html");
+};
+
 const handleRoute = () => {
     const path = window.location.hash;
     handleNavSideStyles(path)
@@ -19,7 +23,7 @@ const handleRoute = () => {
             renderInvoicesTable();
             break;
         default:
-            renderHome();
+            renderPageNotFound();
     }
 };
 
