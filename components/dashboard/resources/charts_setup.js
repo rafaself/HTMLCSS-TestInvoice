@@ -1,4 +1,4 @@
-import { configChart, updateChart, groupingOptions } from "/components/resources/charts_config.js"
+import { configChart, updateChart, groupingOptions } from "/components/dashboard/resources/charts_config.js"
 
 export const setupChartsContext = (invoicesData) => {
     if (invoicesData) {
