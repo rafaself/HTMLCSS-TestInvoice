@@ -18,14 +18,11 @@
     color: var(--color-surface-2);
 }
 
-
-
 .dashboard-filters {
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
-
 
 .dashboard-filters__filter .issue-filter {
     display: flex;
