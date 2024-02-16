@@ -43,3 +43,27 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
+
+.avatar-texts {
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar-texts__name {
+    font-size: 1rem;
+}
+
+.avatar-texts__function {
+    font-size: 0.8rem;
+}
+
+.avatar-icon {
+    background-color: var(--color-surface-1);
+}
+
+.avatar-icon__image {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
