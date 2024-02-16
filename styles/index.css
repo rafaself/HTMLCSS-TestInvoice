@@ -1,5 +1,5 @@
-@import url("/components/header/styles.css");
-@import url("/components/side-nav/styles.css");
+@import url("/views/header/styles.css");
+@import url("/views/side-nav/styles.css");
 @import url("/components/dashboard/indicators/cards/styles.css");
 @import url("/components/dashboard/indicators/grouping-options/styles.css");
 @import url("/components/dashboard/table/styles.css");
