@@ -1,14 +1,21 @@
 <body>
-    <section>
-        <div id="dashboard-indicators"></div>
-        <div id="dashboard-table"></div>
-    </section>
 
+    <div class="dashboard-title">
+        <h4>Estatísticas</h4>
+    </div>
+
+    <div id="indicators-grouping-options"></div>
+    <div id="indicators-cards"></div>
+    <div id="indicators-issued-graphic"></div>
+    <div id="indicators-default-graphic"></div>
+    
     <script type="module" src="/components/resources/main.js"></script>
     <script>
         $().ready(function () {
-            $("#dashboard-indicators").load("components/indicators/template.html");
-            $("#dashboard-table").load("components/table/template.html");
+            $("#indicators-grouping-options").load("components/indicators/grouping-options/template.html");
+            $("#indicators-cards").load("components/indicators/cards/template.html");
+            $("#indicators-issued-graphic").load("components/indicators/values-issue-graphic/template.html");
+            $("#indicators-default-graphic").load("components/indicators/default-graphic/template.html");
         });
     </script>
 </body>
