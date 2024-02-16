@@ -7,7 +7,7 @@ const filterByMonthAndYear = (invoicesData, dateIssueToFilter, dateType) => {
 
     var invoicesDataFiltered = invoicesData.filter((invoiceData) => {
         var [_, invoiceMonthIssued, invoiceYearIssued] = invoiceData[dateType].split('/')
-        return invoiceMonthIssued == monthToFilter & invoiceYearIssued == yearToFilter
+        return invoiceMonthIssued == monthToFilter && invoiceYearIssued == yearToFilter
     })
 
     return invoicesDataFiltered
@@ -65,7 +65,8 @@ export const configButtonAction = () => {
 }
 
 const newLine = (invoiceData) => {
-    dashboardTableLines.append(`
+    var newDashboardTableLines = $(".dashboard-table__lines")
+    newDashboardTableLines.append(`
             <tr>
                 <!-- ID -->
                 <th scope="row">${invoiceData.id}</th>
@@ -90,6 +91,3 @@ const newLine = (invoiceData) => {
             </tr>
         `);
 }
-
-// configButtonAction(invoicesData)
-// populateTable(invoicesData)
