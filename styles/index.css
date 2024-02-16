@@ -1,7 +1,7 @@
 @import url("/views/header/styles.css");
 @import url("/views/side-nav/styles.css");
-@import url("/components/indicators/cards/styles.css");
-@import url("/components/indicators/grouping-options/styles.css");
+@import url("/components/dashboard/cards/styles.css");
+@import url("/components/dashboard/grouping-options/styles.css");
 @import url("/components/table/styles.css");
 
 :root {
