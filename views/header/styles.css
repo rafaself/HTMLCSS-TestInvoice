@@ -58,6 +58,7 @@
 }
 
 .avatar-icon {
+    cursor: pointer;
     background-color: var(--color-surface-1);
 }
 
