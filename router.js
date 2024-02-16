@@ -16,6 +16,9 @@ const handleRoute = () => {
     const path = window.location.hash;
     handleNavSideStyles(path)
     switch (path) {
+        case '':
+            renderHome();
+            break;
         case '#/':
             renderHome();
             break;
