@@ -29,12 +29,8 @@
         </table>
     </div>
 
-    <script type="module">
-        import { main } from "/components/table/scripts.js"
-
-        main()
-
-        $(document).ready(function () {
+    <script>
+        $().ready(function () {
             $("#dashboard-filters").load("components/table/template_filters.html");
         });
     </script>
