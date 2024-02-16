@@ -2,8 +2,10 @@ import { groupingOptions } from "/components/resources/graphic.js"
 import { configChart, updateChart } from "/components/resources/graphic.js"
 
 
-export const configOptionButtonsAction = (invoicesData) => {
-    configChart(invoicesData)
+export const configChartsContext = (invoicesData) => {
+    if (invoicesData) {
+        configChart(invoicesData)
+    }
     $(".option_monthly").on("click", () => {
         $(".option_annually").removeClass("active")
         $(".option_semiannually").removeClass("active")
