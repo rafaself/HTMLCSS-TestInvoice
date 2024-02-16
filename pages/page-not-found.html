@@ -1,5 +1,20 @@
 <body>
-    <div class="d-flex justify-content-center align-items-center">
-        Pagina não encontrada!
+    <div class="d-flex justify-content-center align-items-center flex-column gap-3" style="min-height: 80vh;">
+        <img src="static/images/page-not-found.png" height="300">
+        <div class="text-center">
+            <h4>Pagina não encontrada!</h4>
+            <span class="w-20">
+                Está é uma página de desenvolvimento. <br>Apenas as seções <span class="highlighted-text">Dashboard</span>
+                e <span class="highlighted-text">Lista de notas fiscais</span> estão disponíveis.
+            </span>
+        </div>
     </div>
+
+    <style>
+        .highlighted-text {
+            font-weight: 500;
+            color: var(--color-surface-2);
+        }
+    </style>
+
 </body>
