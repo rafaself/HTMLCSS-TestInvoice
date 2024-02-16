@@ -5,7 +5,7 @@ const renderHome = () => {
 };
 
 const renderInvoicesTable = () => {
-    $("#page").load("pages/invoices_table.html");
+    $("#page").load("pages/invoices-table.html");
 };
 
 const renderPageNotFound = () => {
