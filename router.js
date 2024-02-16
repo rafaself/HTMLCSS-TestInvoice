@@ -16,9 +16,9 @@ const handleRoute = () => {
     const path = window.location.hash;
     handleNavSideStyles(path)
     switch (path) {
-        case '':
-            renderHome();
-            break;
+        // case '':
+        //     renderHome();
+        //     break;
         case '#/':
             renderHome();
             break;
@@ -30,8 +30,10 @@ const handleRoute = () => {
     }
 };
 
-$(window).on('load hashchange', () => {
+$(window).on('hashchange', () => {
     handleRoute();
 });
 
-handleRoute(); 
+setTimeout(() => {
+    handleRoute(); 
+}, 20)

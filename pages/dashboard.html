@@ -9,7 +9,10 @@
     <div id="indicators-issued-graphic"></div>
     <div id="indicators-default-graphic"></div>
     
-    <script type="module" src="/components/resources/main.js"></script>
+    <script type="module">
+        import { main } from "/components/resources/main.js"
+        main()
+    </script>
     <script>
         $().ready(function () {
             $("#indicators-grouping-options").load("components/indicators/grouping-options/template.html");
