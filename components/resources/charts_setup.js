@@ -1,8 +1,6 @@
-import { groupingOptions } from "/components/resources/graphic.js"
-import { configChart, updateChart } from "/components/resources/graphic.js"
+import { configChart, updateChart, groupingOptions } from "/components/resources/charts_setup.js"
 
-
-export const configChartsContext = (invoicesData) => {
+export const setupChartsContext = (invoicesData) => {
     if (invoicesData) {
         configChart(invoicesData)
     }
