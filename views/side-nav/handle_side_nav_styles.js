@@ -5,6 +5,8 @@ export const handleNavSideStyles = (path) => {
 
         if (href == path) {
             $(this).addClass("active")
+        } else if (href == "#/" && path == "") {
+            $(this).addClass("active")
         }
     });
 }
