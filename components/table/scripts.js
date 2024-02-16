@@ -1,3 +1,5 @@
+import { invoicesData } from "/components/resources/generate_data.js";
+
 const filterByMonthAndYear = (invoicesData, dateIssueToFilter, dateType) => {
     var [yearToFilter, monthToFilter] = dateIssueToFilter.split('-')
 
@@ -12,13 +14,13 @@ const filterByMonthAndYear = (invoicesData, dateIssueToFilter, dateType) => {
 
 var dashboardTableLines = $(".dashboard-table__lines")
 
-export const populateTable = (invoicesDataEntry) => {
+const populateTable = (invoicesDataEntry) => {
     for (const [, invoiceData] of Object.entries(invoicesDataEntry)) {
         newLine(invoiceData);
     }
 }
 
-export const configButtonAction = (invoicesDataEntry) => {
+const configButtonAction = (invoicesDataEntry) => {
     var addFiltersButton = $(".add-filters")
     var cleanFiltersButton = $(".clean-filters")
     var dateRangeIssue = $(".daterange-issue")
@@ -92,3 +94,6 @@ const newLine = (invoiceData) => {
                 </tr>
             `);
 }
+
+configButtonAction(invoicesData)
+populateTable(invoicesData)
