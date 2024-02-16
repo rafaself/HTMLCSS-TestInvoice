@@ -16,10 +16,10 @@ const handleRoute = () => {
     const path = window.location.hash;
     handleNavSideStyles(path)
     switch (path) {
-        // case '':
-        //     renderHome();
-        //     break;
         case '#/':
+            renderHome();
+            break;
+        case '':
             renderHome();
             break;
         case '#/invoices-table':
@@ -36,4 +36,4 @@ $(window).on('hashchange', () => {
 
 setTimeout(() => {
     handleRoute(); 
-}, 20)
+}, 30)
