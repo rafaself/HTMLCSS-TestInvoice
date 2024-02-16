@@ -1,25 +1,6 @@
-const renderHome = () => {
-    $("#page").load("pages/dashboard.html");
-};
-
-const renderInvoicesTable = () => {
-    $("#page").load("pages/dashboard.html");
-};
-
-const handleRoute = () => {
-    const path = window.location.hash;
-    switch (path) {
-        case '#/':
-            renderHome();
-            break;
-        case '#/invoices-table':
-            renderAbout();
-            break;
-        default:
-            renderHome();
-    }
-};
-
-window.addEventListener('hashchange', handleRoute);
-
-handleRoute();
+// Carregando os templates em suas respectivas seções
+$(document).ready(function () {
+    $("#side-nav").load("components/side-nav/template.html");
+    $("#header").load("components/header/template.html");
+    $("#footer").load("components/footer/template.html");
+});
