@@ -19,7 +19,7 @@ export const populateTable = (invoicesDataEntry = invoicesData) => {
     }
 }
 
-export const configButtonAction = () => {
+export const configButtonsAction = () => {
     var addFiltersButton = $(".add-filters")
     var cleanFiltersButton = $(".clean-filters")
     var dateRangeIssue = $(".daterange-issue")
