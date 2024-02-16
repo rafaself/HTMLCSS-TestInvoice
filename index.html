@@ -39,19 +39,20 @@
 
         <div class="content">
             <section id="header"></section>
-            <section id="dashboard"></section>
+            <section id="page"></section>
             <section id="footer"></section>
         </div>
 
     </main>
 
+    <script src="app.js"></script>
+    
     <script>
         // Carregando os templates em suas respectivas seções
         $(document).ready(function () {
             $("#side-nav").load("components/side-nav/template.html");
             $("#header").load("components/header/template.html");
             $("#footer").load("components/footer/template.html");
-            $("#dashboard").load("pages/dashboard.html");
         });
     </script>
 
