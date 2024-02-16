@@ -1,4 +1,4 @@
-import { invoicesData } from "/components/resources/generate_data.js";
+const invoicesData = await $.ajax("https://rafaself.github.io/data.json")
 
 var dashboardTableLines = $(".dashboard-table__lines")
 

@@ -1,3 +1,5 @@
+// Script que gera um modelo de dados para ser utilizado
+
 var names = [
     "Sofia Santos",
     "Pedro Almeida",
@@ -140,6 +142,4 @@ export const generateInvoicesData = (invoicesDataSize = 10) => {
     return invoicesDataTemp
 }
 
-// export const invoicesData = generateInvoicesData(100)
-
-export const invoicesData = await $.ajax("https://rafaself.github.io/data.json")
+export const invoicesData = generateInvoicesData(100)
