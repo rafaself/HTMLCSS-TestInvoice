@@ -3,6 +3,7 @@ import { setupChartsContext } from "/components/dashboard/resources/charts_setup
 
 export const main = async () => {
     const invoicesData = await $.ajax("https://rafaself.github.io/data.json")
+    console.log(invoicesData)
     setupChartsContext(invoicesData)
     populateCards(invoicesData)
 }
