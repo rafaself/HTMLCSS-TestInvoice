@@ -1,4 +1,14 @@
-import { filterByMonthAndYear } from "/components/resources/utils.js";
+const filterByMonthAndYear = (invoicesData, dateIssueToFilter, dateType) => {
+    var [yearToFilter, monthToFilter] = dateIssueToFilter.split('-')
+
+    var invoicesDataFiltered = invoicesData.filter((invoiceData) => {
+        var [_, invoiceMonthIssued, invoiceYearIssued] = invoiceData[dateType].split('/')
+        return invoiceMonthIssued == monthToFilter & invoiceYearIssued == yearToFilter
+    })
+
+    return invoicesDataFiltered
+
+}
 
 var dashboardTableLines = $(".dashboard-table__lines")
 
