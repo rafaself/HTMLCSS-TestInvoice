@@ -72,3 +72,7 @@
 .dropdown-item {
     cursor: pointer;
 }
+
+.avatar-menu {
+    min-width: 190px;
+}
