@@ -27,6 +27,8 @@ const handleRoute = () => {
     }
 };
 
-window.addEventListener('hashchange', handleRoute);
+$(window).on('load hashchange', () => {
+    handleRoute();
+});
 
-handleRoute();
+handleRoute(); 
