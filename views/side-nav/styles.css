@@ -36,7 +36,7 @@
 }
 
 .side-nav__buttons__button {
-    padding: 16px;
+    display: flex;
     background-color: var(--color-secondary);
     border: 1px solid transparent;
     border-top-left-radius: 64px;
@@ -44,6 +44,13 @@
     cursor: pointer;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     color: var(--color-primary);
+}
+
+.side-nav__buttons__button a {
+    text-decoration: none;
+    color: var(--color-surface-3);
+    flex-grow: 1;
+    padding: 16px;
 }
 
 .side-nav__buttons__button:hover {
@@ -56,12 +63,6 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 }
 
-.side-nav__buttons__button a {
-    text-decoration: none;
-    color: var(--color-surface-3);
-}
-
 .side-nav__buttons__button.active {
-    padding: 16px;
     background-color: var(--color-surface-1);
 }
