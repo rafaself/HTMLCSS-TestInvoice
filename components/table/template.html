@@ -29,7 +29,9 @@
         </table>
     </div>
 
-    <script>
+    <script type="module">
+        import { populateTable } from "/components/table/scripts.js"
+        populateTable()
         $().ready(function () {
             $("#dashboard-filters").load("components/table/template_filters.html");
         });

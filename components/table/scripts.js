@@ -1,5 +1,7 @@
 import { invoicesData } from "/components/resources/generate_data.js";
 
+var dashboardTableLines = $(".dashboard-table__lines")
+
 const filterByMonthAndYear = (invoicesData, dateIssueToFilter, dateType) => {
     var [yearToFilter, monthToFilter] = dateIssueToFilter.split('-')
 
@@ -11,15 +13,13 @@ const filterByMonthAndYear = (invoicesData, dateIssueToFilter, dateType) => {
     return invoicesDataFiltered
 }
 
-var dashboardTableLines = $(".dashboard-table__lines")
-
-const populateTable = (invoicesDataEntry) => {
+export const populateTable = (invoicesDataEntry = invoicesData) => {
     for (const [, invoiceData] of Object.entries(invoicesDataEntry)) {
         newLine(invoiceData);
     }
 }
 
-const configButtonAction = (invoicesDataEntry) => {
+export const configButtonAction = () => {
     var addFiltersButton = $(".add-filters")
     var cleanFiltersButton = $(".clean-filters")
     var dateRangeIssue = $(".daterange-issue")
@@ -33,7 +33,7 @@ const configButtonAction = (invoicesDataEntry) => {
         dateRangeCharge.val("")
         dateRangePayment.val("")
         invoiceStatus.val("")
-        populateTable(invoicesDataEntry)
+        populateTable(invoicesData)
     })
 
     addFiltersButton.on("click", () => {
@@ -42,21 +42,20 @@ const configButtonAction = (invoicesDataEntry) => {
         var invoiceChargeDateToFilter = dateRangeCharge.val()
         var invoicePaymentDateToFilter = dateRangePayment.val()
         var invoiceStatusToFilter = invoiceStatus.val()
-
-        var invoicesDataCopy = invoicesDataEntry;
+        var invoicesDataCopy = invoicesData;
 
         if (invoiceIssueDateToFilter) {
             invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoiceIssueDateToFilter, "invoiceIssueDate")
         }
-
+        
         if (invoiceChargeDateToFilter) {
             invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoiceChargeDateToFilter, "invoiceChargeDate")
         }
-
+        
         if (invoicePaymentDateToFilter) {
             invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoicePaymentDateToFilter, "invoicePaymentDate")
         }
-
+        
         if (invoiceStatusToFilter != "") {
             invoicesDataCopy = invoicesDataCopy.filter(invoiceData => invoiceData.invoiceStatus == invoiceStatusToFilter)
         }
@@ -91,7 +90,6 @@ const newLine = (invoiceData) => {
             </tr>
         `);
 }
-export const tableConfig = () => {
-    configButtonAction(invoicesData)
-    populateTable(invoicesData)
-}
+
+// configButtonAction(invoicesData)
+// populateTable(invoicesData)
