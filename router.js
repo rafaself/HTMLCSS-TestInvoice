@@ -3,7 +3,7 @@ const renderHome = () => {
 };
 
 const renderInvoicesTable = () => {
-    $("#page").load("pages/dashboard.html");
+    $("#page").load("pages/invoices_table.html");
 };
 
 const handleRoute = () => {
@@ -13,7 +13,7 @@ const handleRoute = () => {
             renderHome();
             break;
         case '#/invoices-table':
-            renderAbout();
+            renderInvoicesTable();
             break;
         default:
             renderHome();
