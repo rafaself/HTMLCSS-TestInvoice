@@ -1,75 +1,76 @@
 import { invoicesData } from "/components/resources/generate_data.js";
 
-const filterByMonthAndYear = (invoicesData, dateIssueToFilter, dateType) => {
-    var [yearToFilter, monthToFilter] = dateIssueToFilter.split('-')
+export const main = () => {
+    const filterByMonthAndYear = (invoicesData, dateIssueToFilter, dateType) => {
+        var [yearToFilter, monthToFilter] = dateIssueToFilter.split('-')
 
-    var invoicesDataFiltered = invoicesData.filter((invoiceData) => {
-        var [_, invoiceMonthIssued, invoiceYearIssued] = invoiceData[dateType].split('/')
-        return invoiceMonthIssued == monthToFilter & invoiceYearIssued == yearToFilter
-    })
+        var invoicesDataFiltered = invoicesData.filter((invoiceData) => {
+            var [_, invoiceMonthIssued, invoiceYearIssued] = invoiceData[dateType].split('/')
+            return invoiceMonthIssued == monthToFilter & invoiceYearIssued == yearToFilter
+        })
 
-    return invoicesDataFiltered
+        return invoicesDataFiltered
 
-}
-
-var dashboardTableLines = $(".dashboard-table__lines")
-
-const populateTable = (invoicesDataEntry) => {
-    for (const [, invoiceData] of Object.entries(invoicesDataEntry)) {
-        newLine(invoiceData);
     }
-}
 
-const configButtonAction = (invoicesDataEntry) => {
-    var addFiltersButton = $(".add-filters")
-    var cleanFiltersButton = $(".clean-filters")
-    var dateRangeIssue = $(".daterange-issue")
-    var dateRangeCharge = $(".daterange-charge")
-    var dateRangePayment = $(".daterange-payment")
-    var invoiceStatus = $(".invoice-status")
+    var dashboardTableLines = $(".dashboard-table__lines")
 
-    cleanFiltersButton.on("click", () => {
-        dashboardTableLines.empty()
-        dateRangeIssue.val("")
-        dateRangeCharge.val("")
-        dateRangePayment.val("")
-        invoiceStatus.val("")
-
-        populateTable(invoicesDataEntry)
-    })
-
-    addFiltersButton.on("click", () => {
-        dashboardTableLines.empty()
-        var invoiceIssueDateToFilter = dateRangeIssue.val()
-        var invoiceChargeDateToFilter = dateRangeCharge.val()
-        var invoicePaymentDateToFilter = dateRangePayment.val()
-        var invoiceStatusToFilter = invoiceStatus.val()
-
-        var invoicesDataCopy = invoicesDataEntry;
-
-        if (invoiceIssueDateToFilter) {
-            invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoiceIssueDateToFilter, "invoiceIssueDate")
+    const populateTable = (invoicesDataEntry) => {
+        for (const [, invoiceData] of Object.entries(invoicesDataEntry)) {
+            newLine(invoiceData);
         }
+    }
 
-        if (invoiceChargeDateToFilter) {
-            invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoiceChargeDateToFilter, "invoiceChargeDate")
-        }
+    const configButtonAction = (invoicesDataEntry) => {
+        var addFiltersButton = $(".add-filters")
+        var cleanFiltersButton = $(".clean-filters")
+        var dateRangeIssue = $(".daterange-issue")
+        var dateRangeCharge = $(".daterange-charge")
+        var dateRangePayment = $(".daterange-payment")
+        var invoiceStatus = $(".invoice-status")
 
-        if (invoicePaymentDateToFilter) {
-            invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoicePaymentDateToFilter, "invoicePaymentDate")
-        }
+        cleanFiltersButton.on("click", () => {
+            dashboardTableLines.empty()
+            dateRangeIssue.val("")
+            dateRangeCharge.val("")
+            dateRangePayment.val("")
+            invoiceStatus.val("")
 
-        if (invoiceStatusToFilter != "") {
-            invoicesDataCopy = invoicesDataCopy.filter(invoiceData => invoiceData.invoiceStatus == invoiceStatusToFilter)
-        }
+            populateTable(invoicesDataEntry)
+        })
 
-        populateTable(invoicesDataCopy)
+        addFiltersButton.on("click", () => {
+            dashboardTableLines.empty()
+            var invoiceIssueDateToFilter = dateRangeIssue.val()
+            var invoiceChargeDateToFilter = dateRangeCharge.val()
+            var invoicePaymentDateToFilter = dateRangePayment.val()
+            var invoiceStatusToFilter = invoiceStatus.val()
 
-    })
-}
+            var invoicesDataCopy = invoicesDataEntry;
 
-const newLine = (invoiceData) => {
-    dashboardTableLines.append(`
+            if (invoiceIssueDateToFilter) {
+                invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoiceIssueDateToFilter, "invoiceIssueDate")
+            }
+
+            if (invoiceChargeDateToFilter) {
+                invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoiceChargeDateToFilter, "invoiceChargeDate")
+            }
+
+            if (invoicePaymentDateToFilter) {
+                invoicesDataCopy = filterByMonthAndYear(invoicesDataCopy, invoicePaymentDateToFilter, "invoicePaymentDate")
+            }
+
+            if (invoiceStatusToFilter != "") {
+                invoicesDataCopy = invoicesDataCopy.filter(invoiceData => invoiceData.invoiceStatus == invoiceStatusToFilter)
+            }
+
+            populateTable(invoicesDataCopy)
+
+        })
+    }
+
+    const newLine = (invoiceData) => {
+        dashboardTableLines.append(`
                 <tr>
                     <!-- ID -->
                     <th scope="row">${invoiceData.id}</th>
@@ -93,7 +94,8 @@ const newLine = (invoiceData) => {
                     <td>${invoiceData.invoiceStatus}</td>
                 </tr>
             `);
-}
+    }
 
-configButtonAction(invoicesData)
-populateTable(invoicesData)
+    configButtonAction(invoicesData)
+    populateTable(invoicesData)
+}
