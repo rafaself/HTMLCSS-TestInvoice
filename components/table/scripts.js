@@ -1,7 +1,5 @@
 const invoicesData = await $.ajax("https://rafaself.github.io/data.json")
 
-var dashboardTableLines = $(".dashboard-table__lines")
-
 const filterByMonthAndYear = (invoicesData, dateIssueToFilter, dateType) => {
     var [yearToFilter, monthToFilter] = dateIssueToFilter.split('-')
 
@@ -20,6 +18,7 @@ export const populateTable = (invoicesDataEntry = invoicesData) => {
 }
 
 export const configButtonsAction = () => {
+    var dashboardTableLines = $(".dashboard-table__lines")
     var addFiltersButton = $(".add-filters")
     var cleanFiltersButton = $(".clean-filters")
     var dateRangeIssue = $(".daterange-issue")
@@ -65,8 +64,8 @@ export const configButtonsAction = () => {
 }
 
 const newLine = (invoiceData) => {
-    var newDashboardTableLines = $(".dashboard-table__lines")
-    newDashboardTableLines.append(`
+    var dashboardTableLines = $(".dashboard-table__lines")
+    dashboardTableLines.append(`
             <tr>
                 <!-- ID -->
                 <th scope="row">${invoiceData.id}</th>
